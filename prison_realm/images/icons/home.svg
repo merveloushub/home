@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="home" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #fff;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 8px;
+      }
+    </style>
+  </defs>
+  <polygon class="cls-1" points="296 117.49 296 296 193.8 296 193.8 182.87 106.2 182.87 106.2 296 4 296 4 117.49 150 4 296 117.49"/>
+</svg>

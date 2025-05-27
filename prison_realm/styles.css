@@ -1,0 +1,759 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --red: #9c2129;
+    --emptyBG: #b92832;
+    --gray: #939c9e;
+    --sealBG: #60686a;
+    --blue: #0099cc;
+    --size: 20em;
+}
+
+body {
+    background-color: var(--emptyBG);
+    color: white;
+    width: 100dvw;
+    height: 100dvh;
+    position: relative;
+    overflow: hidden;
+    font-size: 1em;
+    font-weight: 450;
+    line-height: 1.4em;
+    font-family: "Quicksand", Arial, Helvetica, sans-serif;
+    transition: 3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+body.transformState {
+    background-color: var(--sealBG);
+}
+
+/* MAIN & FOOTER */
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100dvw;
+    height: 100dvh;
+}
+
+footer {
+    position: absolute;
+    padding: 1em;
+    bottom: 0;
+    opacity: 0.5;
+}
+
+/* HEADER */
+header {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75em;
+
+    position: absolute;
+    z-index: 20;
+    font-size: 0.9em;
+
+    width: 100dvw;
+    padding: 1em 0 1em 0;
+    filter: brightness(100%);
+}
+
+h2 {
+    font-size: 1.1em;
+    letter-spacing: 0.03em;
+}
+
+#headerButtons {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 1em;
+}
+
+#infoButton,
+#homeButton img {
+    width: 1.75em;
+    height: 1.75em;
+    position: relative;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+/* CONTROLS */
+/* control states */
+.controls,
+#angleControlExample {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75em;
+}
+
+header input[type="radio"] {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+#controlState .svgContainer {
+    width: 3em;
+    aspect-ratio: 1;
+    cursor: pointer;
+    stroke: white;
+    stroke-width: 10px;
+    fill: rgba(255, 255, 255, 0.25);
+}
+
+#controlState label input[type="radio"]~.svgContainer {
+    opacity: 0.25;
+    transition: 0.5s;
+}
+
+#controlState label input[type="radio"]~.svgContainer:hover {
+    opacity: 0.5;
+    transition: 0.5s;
+}
+
+#controlState label input[type="radio"]:checked~.svgContainer {
+    opacity: 1;
+}
+
+.nofill {
+    fill: transparent !important;
+}
+
+#infoButton:hover,
+#homeButton:hover,
+#closeButton:hover {
+    opacity: 0.5;
+    transition: 0.25s;
+}
+
+#homeButton {
+    display: none;
+}
+
+/* angle controls */
+.angleIndicator,
+#angleControlExample>.angleIndicator {
+    display: block;
+    background-color: rgba(255, 255, 255, 0.25);
+    padding: 0.5em;
+    width: 0.5em;
+    height: 0.5em;
+    aspect-ratio: 1;
+    opacity: 1;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.angleIndicator input:checked+label,
+.angleIndicator:has(input:checked) {
+    background-color: white;
+}
+
+#controlAngle.controls {
+    gap: 0.5em;
+}
+
+.cycleAnglesButtons {
+    background-color: transparent;
+    border: none;
+    width: 1.25em;
+    aspect-ratio: 1;
+    margin: 0 1em 0 1em;
+    cursor: pointer;
+}
+
+.disabledIndicator {
+    cursor: not-allowed;
+    opacity: 0.5;
+    transition: 0.5s;
+}
+
+.disabledIndicator>.angleIndicator input:checked+label,
+.disabledIndicator>.angleIndicator:has(input:checked) {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+/* angle control values */
+.angle1 {
+    transform: rotateX(-15deg) rotateY(20deg) !important;
+}
+
+.angle2 {
+    transform: rotateX(-15deg) rotateY(-75deg) !important;
+}
+
+.angle3 {
+    transform: rotateX(-15deg) rotateY(-160deg) !important;
+}
+
+.angle4 {
+    transform: rotateX(-15deg) rotateY(-255deg) !important;
+}
+
+.angle5 {
+    transform: rotateX(-105deg) rotateY(0deg) !important;
+}
+
+.angle6 {
+    transform: rotateX(75deg) rotateY(0deg) !important;
+}
+
+/* INFO */
+#info.closed {
+    display: none;
+    opacity: 0;
+}
+
+#info {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 75vmin;
+    aspect-ratio: 1;
+    z-index: 9999 !important;
+
+    background-color: white;
+    color: black;
+    padding: 1.5em;
+    border-radius: 0.25em;
+    opacity: 1;
+    transition: 0.5s;
+    overflow-y: scroll;
+
+    box-shadow: 0 0 2em rgba(0, 0, 0, 0.5);
+}
+
+#info h2 {
+    font-size: 1.5em;
+    text-align: center;
+}
+
+#info h3 {
+    font-size: 1.33em;
+}
+
+#info h4 {
+    font-size: 1.125em;
+}
+
+#info .container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    gap: 1.75em;
+}
+
+#info .container,
+#info section,
+#info ul,
+.collapse {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+#info section,
+.collapse {
+    gap: 0.75em
+}
+
+#info ul {
+    margin-left: 2em;
+    gap: 0.125em;
+}
+
+.highlight {
+    font-weight: 800;
+}
+
+.red {
+    color: var(--red);
+}
+
+.gray {
+    color: #585a5a;
+}
+
+.blue {
+    color: #1693bc;
+}
+
+#version {
+    padding: 1em 0 1em 0;
+    opacity: 0.50;
+}
+
+#version:hover {
+    opacity: 1;
+    transition: 0.5s;
+}
+
+#info button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1em;
+    aspect-ratio: 1;
+}
+
+/* angle control example */
+#angleControlExample {
+    filter: brightness(0%);
+    width: fit-content;
+    gap: 0.125em;
+    padding-top: 0.25em;
+}
+
+#angleControlExample>* {
+    scale: 75%
+}
+
+#angleControlExample .angleIndicator {
+    cursor: auto;
+}
+
+#angleControlExample img:first-child {
+    margin-right: 0.5em;
+}
+
+#angleControlExample img:last-child {
+    margin-left: 0.5em;
+}
+
+
+#angleControlExample img:first-child,
+#angleControlExample img:last-child {
+    background-color: transparent;
+    border: none;
+    width: 1.25em;
+    aspect-ratio: 1;
+}
+
+/* faux bullet points */
+#pictureBullets {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 0.75em !important;
+    list-style-type: none;
+    margin-left: 0 !important;
+    padding: 0.25em 0 0.25em 0;
+}
+
+#pictureBullets li {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+    gap: 1em;
+}
+
+#info li img {
+    width: 2.5em;
+    aspect-ratio: 1;
+}
+
+.darkenUi h2,
+.darkenUi #headerButtons,
+.darkenUi #controlState label input[type="radio"]:checked~.svgContainer {
+    filter: drop-shadow(0 0 0.5em black);
+    transition: 0.5s;
+    transition-delay: 0.5s;
+}
+
+/* collapse menus */
+.collapse-toggle {
+    display: none;
+}
+
+.collapse-label {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.collapse {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+.collapse-toggle:checked+.collapse-label+.collapse {
+    max-height: fit-content;
+    opacity: 1;
+    display: flex;
+}
+
+.collapse-label img {
+    width: 1.25em;
+    aspect-ratio: 1;
+    transition: transform 0.3s ease;
+    opacity: 0.5;
+}
+
+.collapse-toggle:checked+.collapse-label img {
+    transform: rotate(180deg);
+}
+
+/* iframe */
+.iframeContainer {
+    position: relative;
+    overflow: hidden;
+    width: 50%;
+    padding-top: 28.125%;
+}
+
+.responsiveiFrame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    transform: scale(0.5);
+    transform-origin: top left;
+}
+
+/* CUBE */
+#prisonRealmContainer {
+    width: var(--size);
+    height: var(--size);
+    text-align: center;
+    position: absolute;
+    transition: 3s cubic-bezier(0.19, 1, 0.22, 1);
+    z-index: 0;
+}
+
+#prisonRealm {
+    width: 100%;
+    aspect-ratio: 1;
+    position: relative;
+    transform-style: preserve-3d;
+    transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+    transition-duration: 2s;
+    transform: rotateX(-15deg) rotateY(20deg);
+}
+
+.cubeface {
+    width: var(--size);
+    background-size: 100% auto;
+    position: absolute;
+    aspect-ratio: 1;
+    transform-style: preserve-3d;
+    z-index: 0;
+    backface-visibility: hidden;
+    background-repeat: no-repeat;
+}
+
+/* top face */
+#cubeFace1 {
+    transform: rotateX(90deg) translateZ(calc(var(--size)/2));
+    filter: brightness(90%);
+}
+
+/* front face */
+#cubeFace2 {
+    transform: rotateY(0deg) translateZ(calc(var(--size)/2));
+}
+
+/* right face */
+#cubeFace3 {
+    transform: rotateY(90deg) translateZ(calc(var(--size)/2));
+    filter: brightness(80%);
+}
+
+/* back face */
+#cubeFace4 {
+    transform: rotateY(180deg) translateZ(calc(var(--size)/2));
+    filter: brightness(70%);
+}
+
+/* left face */
+#cubeFace5 {
+    transform: rotateY(-90deg) translateZ(calc(var(--size)/2));
+    filter: brightness(80%);
+}
+
+/* bottom face */
+#cubeFace6 {
+    transform: rotateX(-90deg) translateZ(calc(var(--size)/2));
+    filter: brightness(60%);
+}
+
+/* EMPTY STATE (default) */
+.cubeface {
+    background-color: var(--red);
+}
+
+#cubeFace1 .backgroundImgLayer {
+    animation: emptyStateFace1 5s infinite;
+}
+
+#cubeFace2 .backgroundImgLayer {
+    animation: emptyStateFace2 5s infinite;
+}
+
+#cubeFace3 .backgroundImgLayer {
+    animation: emptyStateFace3 5s infinite;
+}
+
+#cubeFace4 .backgroundImgLayer {
+    animation: emptyStateFace4 5s infinite;
+}
+
+#cubeFace5 .backgroundImgLayer {
+    animation: emptyStateFace5 5s infinite;
+}
+
+#cubeFace6 .backgroundImgLayer {
+    animation: emptyStateFace6 5s infinite;
+}
+
+/* empty state animation */
+@keyframes emptyStateFace1 {
+    0% {
+        background-image: url(https://nariesu.com/prison_realm/images/emptyCubeface1_frames/emptyCubeface_ec.png);
+    }
+
+    2% {
+        background-image: url(https://nariesu.com/prison_realm/images/emptyCubeface1_frames/emptyCubeface_eb.png);
+    }
+
+    3% {
+        background-image: url(https://nariesu.com/prison_realm/images/emptyCubeface1_frames/emptyCubeface_eo.png);
+    }
+
+    97% {
+        background-image: url(https://nariesu.com/prison_realm/images/emptyCubeface1_frames/emptyCubeface_eo.png);
+    }
+
+    98% {
+        background-image: url(https://nariesu.com/prison_realm/images/emptyCubeface1_frames/emptyCubeface_eb.png);
+    }
+
+    100% {
+        background-image: url(https://nariesu.com/prison_realm/images/emptyCubeface1_frames/emptyCubeface_ec.png);
+    }
+}
+
+@keyframes emptyStateFace2 {
+    0% {
+        background-image: url(https://nariesu.com/prison_realm/images/emptyCubeface2_frames/emptyCubeface2_ec.png);
+    }
+
+    2% {
+        background-image: url(https://nariesu.com/prison_realm/images/emptyCubeface2_frames/emptyCubeface2_eb.png);
+    }
+
+    3% {
+        background-image: url(https://nariesu.com/prison_realm/images/emptyCubeface2_frames/emptyCubeface2_eo.png);
+    }
+
+    97% {
+        background-image: url(https://nariesu.com/prison_realm/images/emptyCubeface2_frames/emptyCubeface2_eo.png);
+    }
+
+    98% {
+        background-image: url(https://nariesu.com/prison_realm/images/emptyCubeface2_frames/emptyCubeface2_eb.png);
+    }
+
+    100% {
+        background-image: url(https://nariesu.com/prison_realm/images/emptyCubeface2_frames/emptyCubeface2_ec.png);
+    }
+}
+
+
+@keyframes emptyStateFace3 {
+    0% {
+        background-image: url(https://nariesu.com/prison_realm/images/emptyCubeface3_frames/emptyCubeface3_ec.png);
+    }
+
+    2% {
+        background-image: url(https://nariesu.com/prison_realm/images/emptyCubeface3_frames/emptyCubeface3_eb.png);
+    }
+
+    3% {
+        background-image: url(https://nariesu.com/prison_realm/images/emptyCubeface3_frames/emptyCubeface3_eo.png);
+    }
+
+    97% {
+        background-image: url(https://nariesu.com/prison_realm/images/emptyCubeface3_frames/emptyCubeface3_eo.png);
+    }
+
+    98% {
+        background-image: url(https://nariesu.com/prison_realm/images/emptyCubeface3_frames/emptyCubeface3_eb.png);
+    }
+
+    100% {
+        background-image: url(https://nariesu.com/prison_realm/images/emptyCubeface3_frames/emptyCubeface3_ec.png);
+    }
+}
+
+@keyframes emptyStateFace4 {
+    0% {
+        background-image: url(https://nariesu.com/prison_realm/images/emptyCubeface4_frames/emptyCubeface4_ec.png);
+    }
+
+    2% {
+        background-image: url(https://nariesu.com/prison_realm/images/emptyCubeface4_frames/emptyCubeface4_eb.png);
+    }
+
+    3% {
+        background-image: url(https://nariesu.com/prison_realm/images/emptyCubeface4_frames/emptyCubeface4_eo.png);
+    }
+
+    97% {
+        background-image: url(https://nariesu.com/prison_realm/images/emptyCubeface4_frames/emptyCubeface4_eo.png);
+    }
+
+    98% {
+        background-image: url(https://nariesu.com/prison_realm/images/emptyCubeface4_frames/emptyCubeface4_eb.png);
+    }
+
+    100% {
+        background-image: url(https://nariesu.com/prison_realm/images/emptyCubeface4_frames/emptyCubeface4_ec.png);
+    }
+}
+
+@keyframes emptyStateFace5 {
+    0% {
+        background-image: url(https://nariesu.com/prison_realm/images/emptyCubeface5_frames/emptyCubeface5_ec.png);
+    }
+
+    2% {
+        background-image: url(https://nariesu.com/prison_realm/images/emptyCubeface5_frames/emptyCubeface5_eb.png);
+    }
+
+    3% {
+        background-image: url(https://nariesu.com/prison_realm/images/emptyCubeface5_frames/emptyCubeface5_eo.png);
+    }
+
+    97% {
+        background-image: url(https://nariesu.com/prison_realm/images/emptyCubeface5_frames/emptyCubeface5_eo.png);
+    }
+
+    98% {
+        background-image: url(https://nariesu.com/prison_realm/images/emptyCubeface5_frames/emptyCubeface5_eb.png);
+    }
+
+    100% {
+        background-image: url(https://nariesu.com/prison_realm/images/emptyCubeface5_frames/emptyCubeface5_ec.png);
+    }
+}
+
+@keyframes emptyStateFace6 {
+    0% {
+        background-image: url(https://nariesu.com/prison_realm/images/emptyCubeface6_frames/emptyCubeface6_ec.png);
+    }
+
+    2% {
+        background-image: url(https://nariesu.com/prison_realm/images/emptyCubeface6_frames/emptyCubeface6_eb.png);
+    }
+
+    3% {
+        background-image: url(https://nariesu.com/prison_realm/images/emptyCubeface6_frames/emptyCubeface6_eo.png);
+    }
+
+    97% {
+        background-image: url(https://nariesu.com/prison_realm/images/emptyCubeface6_frames/emptyCubeface6_eo.png);
+    }
+
+    98% {
+        background-image: url(https://nariesu.com/prison_realm/images/emptyCubeface6_frames/emptyCubeface6_eb.png);
+    }
+
+    100% {
+        background-image: url(https://nariesu.com/prison_realm/images/emptyCubeface6_frames/emptyCubeface6_ec.png);
+    }
+}
+
+#prisonRealm.transformState.angle1,
+#prisonRealm.transformState.angle2,
+#prisonRealm.transformState.angle3,
+#prisonRealm.transformState.angle4,
+#prisonRealm.transformState.angle5,
+#prisonRealm.transformState.angle6 {
+    display: block !important;
+}
+
+/* STOP FLICKERING TESTING */
+.cubeface {
+    background-color: transparent;
+}
+
+.cubeface>* {
+    transform-style: preserve-3d;
+    width: var(--size);
+    aspect-ratio: 1;
+    position: absolute;
+}
+
+.backgroundImgLayer {
+    width: var(--size);
+    background-size: 100% auto;
+    z-index: 100;
+}
+
+.backgroundColorLayer {
+    background-color: var(--red);
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 600px) {
+    :root {
+        --size: 15em;
+    }
+
+    body {
+        font-size: 0.8em;
+    }
+
+    .cycleAnglesButtons {
+        width: 0.8em;
+    }
+
+    #infoButton {
+        width: 1.25em;
+    }
+
+    #info {
+        width: 90vmin;
+        aspect-ratio: 2 / 3;
+    }
+
+    .iframeContainer {
+        width: 100%;
+        padding-top: 56.25%;
+    }
+
+    .responsiveiFrame {
+        width: 100%;
+        height: 100%;
+        transform: none;
+    }
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="reset_button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #9c2129;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 10px;
+      }
+    </style>
+  </defs>
+  <path class="cls-1" d="M62.4,62.4v233.6L4,237.6V4l58.4,58.4ZM62.4,62.4v233.6h233.6V62.4H62.4ZM237.6,4H4l58.4,58.4h233.6L237.6,4Z"/>
+  <path class="cls-1" d="M227.76,130.64c2.59,56.27-40.85,99.7-97.11,97.11-2.59-56.27,40.85-99.7,97.11-97.11"/>
+  <ellipse class="cls-1" cx="179.2" cy="179.2" rx="20.04" ry="13.36" transform="translate(-74.23 179.2) rotate(-45)"/>
+</svg>

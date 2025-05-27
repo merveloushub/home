@@ -1,0 +1,686 @@
+/* TRANSFORM STATE */
+#prisonRealm.transformState {
+    transform: rotateY(0deg) rotateY(0deg) !important;
+    transition: transform 3s cubic-bezier(0.19, 1, 0.22, 1) !important;
+}
+
+#cubeFace2.transformState {
+    animation: fadeOut 3s forwards;
+    animation-delay: 0.75s;
+}
+
+#cubeFace1.transformState .backgroundImgLayer {
+    animation: transformStateFace1 3s forwards;
+}
+
+#cubeFace2.transformState .backgroundImgLayer {
+    animation: transformStateFace2 3s forwards;
+}
+
+#cubeFace3.transformState .backgroundImgLayer {
+    animation: transformStateFace3 3s forwards;
+}
+
+#cubeFace4.transformState .backgroundImgLayer {
+    animation: transformStateFace4 3s forwards;
+}
+
+#cubeFace5.transformState .backgroundImgLayer {
+    animation: transformStateFace5 3s forwards;
+}
+
+#cubeFace6.transformState .backgroundImgLayer {
+    animation: transformStateFace6 3s forwards;
+}
+
+/* transform state animations */
+@keyframes transformStateFace1 {
+    0% {
+        background-image: url(images/emptyCubeface1_frames/emptyCubeface_eb.png);
+    }
+    14% {
+        background-image: url(images/emptyCubeface1_frames/emptyCubeface_eb.png);
+    }
+    15% {
+        background-image: url(images/emptyCubeface1_frames/emptyCubeface_ec.png);
+    }
+    100% {
+        background-image: url(images/emptyCubeface1_frames/emptyCubeface_ec.png);
+        display: none;
+        visibility: hidden;
+    }
+}
+
+@keyframes transformStateFace2 {
+    0% {
+        background-image: url(images/emptyCubeface2_frames/emptyCubeface2_eb.png);
+    }
+    14% {
+        background-image: url(images/emptyCubeface2_frames/emptyCubeface2_eb.png);
+    }
+    15% {
+        background-image: url(images/emptyCubeface2_frames/emptyCubeface2_ec.png);
+    }
+    55% {
+        opacity: 1;
+    }
+    100% {
+        background-image: url(images/emptyCubeface2_frames/emptyCubeface2_ec.png);
+        opacity: 0;
+        display: none;
+        visibility: hidden;
+    }
+}
+
+@keyframes transformStateFace3 {
+    0% {
+        background-image: url(images/emptyCubeface3_frames/emptyCubeface3_eb.png);
+    }
+    14% {
+        background-image: url(images/emptyCubeface3_frames/emptyCubeface3_eb.png);
+    }
+    15% {
+        background-image: url(images/emptyCubeface3_frames/emptyCubeface3_ec.png);
+    }
+    100% {
+        background-image: url(images/emptyCubeface3_frames/emptyCubeface3_ec.png);
+        display: none;
+        visibility: hidden;
+    }
+}
+
+@keyframes transformStateFace4 {
+    0% {
+        background-image: url(images/emptyCubeface4_frames/emptyCubeface4_eb.png);
+    }
+    14% {
+        background-image: url(images/emptyCubeface4_frames/emptyCubeface4_eb.png);
+    }
+    15% {
+        background-image: url(images/emptyCubeface4_frames/emptyCubeface4_ec.png);
+    }
+    100% {
+        background-image: url(images/emptyCubeface4_frames/emptyCubeface4_ec.png);
+        display: none;
+        visibility: hidden;
+    }
+}
+
+@keyframes transformStateFace5 {
+    0% {
+        background-image: url(images/emptyCubeface5_frames/emptyCubeface5_eb.png);
+    }
+    14% {
+        background-image: url(images/emptyCubeface5_frames/emptyCubeface5_eb.png);
+    }
+    15% {
+        background-image: url(images/emptyCubeface5_frames/emptyCubeface5_ec.png);
+    }
+    100% {
+        background-image: url(images/emptyCubeface5_frames/emptyCubeface5_ec.png);
+        display: none;
+        visibility: hidden;
+    }
+}
+
+@keyframes transformStateFace6 {
+    0% {
+        background-image: url(images/emptyCubeface6_frames/emptyCubeface6_eb.png);
+    }
+    14% {
+        background-image: url(images/emptyCubeface6_frames/emptyCubeface6_eb.png);
+    }
+    15% {
+        background-image: url(images/emptyCubeface6_frames/emptyCubeface6_ec.png);
+    }
+    100% {
+        background-image: url(images/emptyCubeface6_frames/emptyCubeface6_ec.png);
+        display: none;
+        visibility: hidden;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+/* openState */
+#openState {
+    display: none;
+    width: var(--size);
+    aspect-ratio: 1;
+    background-size: 100% auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 15;
+}
+
+.openStateCorner {
+    background-color: var(--red);
+    width: calc(var(--size)/2);
+    aspect-ratio: 1;
+    position: absolute;
+    transform: translate(0);
+}
+
+#openState.transformState {
+    display: block;
+    background-image: url(images/openStateImg.png);
+    background-color: var(--emptyBG);
+}
+
+#cornerTopLeft {
+    top: 0;
+    left: 0;
+}
+
+#cornerTopRight {
+    top: 0;
+    right: 0;
+}
+
+#cornerBottomLeft {
+    bottom: 0;
+    left: 0;
+}
+
+#cornerBottomRight {
+    bottom: 0;
+    right: 0;
+}
+
+#openState.transformState #cornerTopLeft {
+    animation: transformCornerTL 5s forwards;
+    animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+    animation-delay: 3s;
+}
+
+#openState.transformState #cornerTopRight {
+    animation: transformCornerTR 5s forwards;
+    animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+    animation-delay: 3s;
+}
+
+#openState.transformState #cornerBottomLeft {
+    animation: transformCornerBL 5s forwards;
+    animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+    animation-delay: 3s;
+}
+
+#openState.transformState #cornerBottomRight {
+    animation: transformCornerBR 5s forwards;
+    animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+    animation-delay: 3s;
+}
+
+/* openState animations */
+@keyframes transformCornerTL {
+    0% {
+        transform: translate(0) scale(100%);
+    }
+    20% {
+        transform: translate(-5em, -5em) scale(50%);
+    }
+    80% {
+        transform: translate(-5em, -5em) scale(50%);
+    }
+    100% {
+        transform: translate(0) scale(100%);
+    }
+}
+
+@keyframes transformCornerTR {
+    0% {
+        transform: translate(0) scale(100%);
+    }
+    20% {
+        transform: translate(5em, -5em) scale(50%);
+    }
+    80% {
+        transform: translate(5em, -5em) scale(50%);
+    }
+    100% {
+        transform: translate(0) scale(100%);
+    }
+}
+
+@keyframes transformCornerBL {
+    0% {
+        transform: translate(0) scale(100%);
+    }
+    20% {
+        transform: translate(-5em, 5em) scale(50%);
+    }
+    80% {
+        transform: translate(-5em, 5em) scale(50%);
+    }
+    100% {
+        transform: translate(0) scale(100%);
+    }
+}
+
+@keyframes transformCornerBR {
+    0% {
+        transform: translate(0) scale(100%);
+    }
+    20% {
+        transform: translate(5em, 5em) scale(50%);
+    }
+    80% {
+        transform: translate(5em, 5em) scale(50%);
+    }
+    100% {
+        transform: translate(0) scale(100%);
+    }
+}
+
+@keyframes getInThere {
+    0% { 
+        opacity: 0;
+        scale: 0;
+
+        transform: rotate(0deg);
+        top: -50em;
+        left: -50em;
+    }
+    20% {
+        scale: calc(var(--size)/2);
+    }
+    40% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+        scale: calc(var(--size)/2);
+    }   
+    100% {
+        opacity: 0;
+        scale: 0;
+
+        transform: rotate(1080deg);
+        top: 0em;
+        right: 0em;
+        bottom: 0;
+        left: 0;
+    }
+}
+
+/* CLOSEDSTATE */
+body.closedState {
+    background-color: var(--sealBG);
+    transition-delay: 1.25s;
+}
+
+/* closedState animations */
+#cubeFace1.closedState .backgroundImgLayer {
+    opacity: 0;
+    background-image: url(images/closedCubeface1_frames/closedCubeface1_ec.png);
+    animation: makeEyesVisible 1.5s linear forwards !important;
+    animation-delay: 1.25s !important;
+}
+
+#cubeFace1.closedState .backgroundColorLayer {
+    animation: changePrisonColor 1.5s linear forwards !important;
+    animation-delay: 1.25s !important;
+}
+
+#cubeFace2.closedState {
+    opacity: 1 !important;
+}
+
+#cubeFace2.closedState .backgroundImgLayer {
+    opacity: 0;
+    background-image: url(images/closedCubeface2_frames/closedCubeface2_ec.png);
+    animation: makeEyesVisible 1.5s linear forwards !important;
+    animation-delay: 1.25s !important;
+}
+
+#cubeFace2.closedState .backgroundColorLayer {
+    animation: changePrisonColor 1.5s linear forwards !important;
+    animation-delay: 1.25s !important;
+}
+
+#cubeFace3.closedState .backgroundImgLayer {
+    opacity: 0;
+    background-image: url(images/closedCubeface3_frames/closedCubeface3_ec.png);
+    animation: makeEyesVisible 1.5s linear forwards !important;
+    animation-delay: 1.25s !important;
+}
+
+#cubeFace3.closedState .backgroundColorLayer {
+    animation: changePrisonColor 1.5s linear forwards !important;
+    animation-delay: 1.25s !important;
+}
+
+#cubeFace4.closedState .backgroundImgLayer {
+    opacity: 0;
+    background-image: url(images/closedCubeface4_frames/closedCubeface4_ec.png);
+    animation: makeEyesVisible 1.5s linear forwards !important;
+    animation-delay: 1.25s !important;
+}
+
+#cubeFace4.closedState .backgroundColorLayer {
+    animation: changePrisonColor 1.5s linear forwards !important;
+    animation-delay: 1.25s !important;
+}
+
+#cubeFace5.closedState .backgroundImgLayer {
+    opacity: 0;
+    background-image: url(images/closedCubeface5_frames/closedCubeface5_ec.png);
+    animation: makeEyesVisible 1.5s linear forwards !important;
+    animation-delay: 1.25s !important;
+}
+
+#cubeFace5.closedState .backgroundColorLayer {
+    animation: changePrisonColor 1.5s linear forwards !important;
+    animation-delay: 1.25s !important;
+}
+
+#cubeFace6.closedState .backgroundImgLayer {
+    opacity: 0;
+    background-image: url(images/closedCubeface6_frames/closedCubeface6_ec.png);
+    animation: makeEyesVisible 1.5s linear forwards !important;
+    animation-delay: 1.25s !important;
+}
+
+#cubeFace6.closedState .backgroundColorLayer {
+    animation: changePrisonColor 1.5s linear forwards !important;
+    animation-delay: 1.25s !important;
+}
+
+@keyframes makeEyesVisible {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes changePrisonColor {
+    from {
+        background-color: var(--red);
+    }
+    to {
+        background-color: var(--gray);
+    }
+}
+
+/* GOJOSTATE */
+body.gojoState {
+    background-color: var(--blue);
+    transition-delay: 0.5s !important;
+}
+
+#prisonRealmContainer.gojoState {
+    animation: dropPrison 0.5s cubic-bezier(0.55, 0.055, 0.51, -0.04) forwards;
+}
+
+#prisonRealm.gojoState {
+    transform: rotateX(-15deg) rotateY(-615deg) !important;
+}
+
+#blindfoldedIdiot {
+    display: none;
+    width: calc(var(--size)/2);
+    position: absolute;
+    top: -50em;
+    right: 0;
+    bottom: 0;
+    left: -50em;
+    z-index: 25;
+    opacity: 1;
+    margin: auto;
+}
+
+#blindfoldedIdiot.gojoState {
+    display: block;
+    animation: getInThere 2s forwards linear;
+    animation-delay: 4s;
+    opacity: 0;
+}
+
+@keyframes dropPrison {
+    from {
+        transform: translateY(-5vh);
+        transform-origin: top;
+    }
+    to {
+        transform: translateY(20vh);
+        transform-origin: top;
+    }
+}
+
+@keyframes getInThere {
+    0% { 
+        opacity: 0;
+        scale: 0;
+
+        transform: rotate(0deg);
+        top: -50em;
+        left: -50em;
+    }
+    20% {
+        scale: calc(var(--size)/2);
+    }
+    40% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+        scale: calc(var(--size)/2);
+    }   
+    100% {
+        opacity: 0;
+        scale: 0;
+
+        transform: rotate(1080deg);
+        top: 0em;
+        right: 0em;
+        bottom: 0;
+        left: 0;
+    }
+}
+
+/* hidden faces */
+#cubeFace2.gojoState .backgroundImgLayer {
+    animation: gojoStateFace2 5s forwards !important;
+    opacity: 1 !important;
+}
+
+#cubeFace3.gojoState .backgroundImgLayer {
+    animation: gojoStateFace3 5s forwards !important;
+    opacity: 1 !important;
+}
+
+#cubeFace6.gojoState .backgroundImgLayer {
+    animation: gojoStateFace6 5s forwards !important;
+    opacity: 1 !important;
+}
+
+@keyframes gojoStateFace2 {
+    0% {
+        background-image: url(images/closedCubeface2_frames/closedCubeface2_eb.png);
+    }
+    1% {
+        background-image: url(images/closedCubeface2_frames/closedCubeface2_eb.png);
+    }
+    2% {
+        background-image: url(images/closedCubeface2_frames/closedCubeface2_eo.png);
+    }
+    49% {
+        background-image: url(images/closedCubeface2_frames/closedCubeface2_eo.png);
+    }
+    50% {
+        background-image: none;
+        display: none;
+    }
+    100% {
+        background-image: none;
+        visibility: hidden;
+        display: none;
+    }
+}
+
+@keyframes gojoStateFace3 {
+    0% {
+        background-image: url(images/closedCubeface3_frames/closedCubeface3_eb.png);
+    }
+    1% {
+        background-image: url(images/closedCubeface3_frames/closedCubeface3_eb.png);
+    }
+    2% {
+        background-image: url(images/closedCubeface3_frames/closedCubeface3_eo.png);
+    }
+    49% {
+        background-image: url(images/closedCubeface3_frames/closedCubeface3_eo.png);
+    }
+    50% {
+        background-image: none;
+        display: none;
+    }
+    100% {
+        background-image: none;
+        visibility: hidden;
+        display: none;
+    }
+}
+
+@keyframes gojoStateFace6 {
+    0% {
+        background-image: url(images/closedCubeface6_frames/closedCubeface6_eb.png);
+    }
+    1% {
+        background-image: url(images/closedCubeface6_frames/closedCubeface6_eb.png);
+    }
+    2% {
+        background-image: url(images/closedCubeface6_frames/closedCubeface6_eo.png);
+    }
+    49% {
+        background-image: url(images/closedCubeface6_frames/closedCubeface6_eo.png);
+    }
+    50% {
+        background-image: none;
+        display: none;
+    }
+    100% {
+        background-image: none;
+        visibility: hidden;
+        display: none;
+    }
+}
+
+/* visble faces: moving */
+#cubeFace1.gojoStateAnimate .backgroundImgLayer {
+    background-image: url(images/gojoCubeFace1_Animation.webp) !important;
+}
+
+#cubeFace4.gojoStateAnimate .backgroundImgLayer {
+    background-image: url(images/gojoCubeFace4_Animation.webp) !important;
+}
+
+#cubeFace5.gojoStateAnimate .backgroundImgLayer {
+    background-image: url(images/gojoCubeFace5_Animation.webp) !important;
+}
+
+/* visible faces: blinking */
+#cubeFace1.gojoState .backgroundImgLayer {
+    animation: gojoStateFace1 5s infinite !important;
+    animation-delay: 3.5s !important;
+    opacity: 1 !important;
+}
+
+#cubeFace4.gojoState .backgroundImgLayer {
+    animation: gojoStateFace4 5s infinite !important;
+    animation-delay: 3.5s !important;
+    opacity: 1 !important;
+}
+
+#cubeFace5.gojoState .backgroundImgLayer {
+    animation: gojoStateFace5 5s infinite !important;
+    animation-delay: 3.5s !important;
+    opacity: 1 !important;
+}
+
+@keyframes gojoStateFace1 {
+    0% {
+        background-image: url(images/closedCubeface1_frames/closedCubeface1_eo.png);
+    }
+    94% {
+        background-image: url(images/closedCubeface1_frames/closedCubeface1_eo.png);
+    }
+    95% {
+        background-image: url(images/closedCubeface1_frames/closedCubeface1_eb.png);
+    }
+    97% {
+        background-image: url(images/closedCubeface1_frames/closedCubeface1_ec.png);
+    }
+    98% {
+        background-image: url(images/closedCubeface1_frames/closedCubeface1_eb.png);
+    }
+    100% {
+        background-image: url(images/closedCubeface1_frames/closedCubeface1_eo.png);
+    }
+}
+
+@keyframes gojoStateFace4 {
+    0% {
+        background-image: url(images/closedCubeface4_frames/closedCubeface4_eo.png);
+    }
+    94% {
+        background-image: url(images/closedCubeface4_frames/closedCubeface4_eo.png);
+    }
+    95% {
+        background-image: url(images/closedCubeface4_frames/closedCubeface4_eb.png);
+    }
+    97% {
+        background-image: url(images/closedCubeface4_frames/closedCubeface4_ec.png);
+    }
+    98% {
+        background-image: url(images/closedCubeface4_frames/closedCubeface4_eb.png);
+    }
+    100% {
+        background-image: url(images/closedCubeface4_frames/closedCubeface4_eo.png);
+    }
+}
+
+
+@keyframes gojoStateFace5 {
+    0% {
+        background-image: url(images/closedCubeface5_frames/closedCubeface5_eo.png);
+    }
+    94% {
+        background-image: url(images/closedCubeface5_frames/closedCubeface5_eo.png);
+    }
+    95% {
+        background-image: url(images/closedCubeface5_frames/closedCubeface5_eb.png);
+    }
+    97% {
+        background-image: url(images/closedCubeface5_frames/closedCubeface5_ec.png);
+    }
+    98% {
+        background-image: url(images/closedCubeface5_frames/closedCubeface5_eb.png);
+    }
+    100% {
+        background-image: url(images/closedCubeface5_frames/closedCubeface5_eo.png);
+    }
+}
+
+/* WILL CHANGE */
+.cubeface.transformState,
+.cubeface.closedState,
+.cubeface.gojoStateAnimate,
+.cubeface.gojoState,
+.backgroundLayer,
+.backgroundLayer.closedState {
+    will-change: opacity;
+}

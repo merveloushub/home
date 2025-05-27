@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Prison Realm</title>
+  <link rel="icon" type="image/x-icon" href="https://nariesu.com/prison_realm/images/favicon.png">
+
+  <link href="https://nariesu.com/prison_realm/styles.css" rel="stylesheet" type="text/css" media="all">
+  <link rel="preload" href="https://nariesu.com/prison_realm/animations.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <script src="https://nariesu.com/prison_realm/script.js" defer></script>
+
+  <!-- BETA 1.2.0. 
+   4/12/25 -->
+</head>
+
+<body>
+  <header>
+    <h2>Change State</h2>
+    <div class="controls" id="controlState">
+      <label for="resetToggle" title="Empty Prison Realm (Default)">
+        <input type="radio" name="cubeState" id="resetToggle" checked>
+        <div class="svgContainer">
+          <svg id="reset_button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+            <path
+              d="M62.4,62.4v233.6L4,237.6V4l58.4,58.4ZM62.4,62.4v233.6h233.6V62.4H62.4ZM237.6,4H4l58.4,58.4h233.6L237.6,4Z" />
+            <path class=" nofill"
+              d="M227.76,130.64c2.59,56.27-40.85,99.7-97.11,97.11-2.59-56.27,40.85-99.7,97.11-97.11" />
+            <ellipse class="nofill" cx="179.2" cy="179.2" rx="20.04" ry="13.36"
+              transform="translate(-74.23 179.2) rotate(-45)" />
+          </svg>
+        </div>
+      </label>
+      <label for="transformToggle" title="Close Prison Realm">
+        <input type="radio" name="cubeState" id="transformToggle">
+        <div class="svgContainer">
+          <svg id="close_button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+            <path
+              d="M62.4,62.4v233.6L4,237.6V4l58.4,58.4ZM62.4,62.4v233.6h233.6V62.4H62.4ZM237.6,4H4l58.4,58.4h233.6L237.6,4Z" />
+            <path class=" nofill" d="M227.76,130.64c2.59,56.27-40.85,99.7-97.11,97.11" />
+          </svg>
+        </div>
+      </label>
+      <label for="gojoToggle" title="Seal Gojo in Prison Realm">
+        <input type="radio" name="cubeState" id="gojoToggle">
+        <div class="svgContainer">
+          <svg id="gojo_button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+            <path
+              d="M62.4,62.4v233.6L4,237.6V4l58.4,58.4ZM62.4,62.4v233.6h233.6V62.4H62.4ZM237.6,4H4l58.4,58.4h233.6L237.6,4Z" />
+            <path class="nofill"
+              d="M119.95,168.51h118.5-118.5ZM157.79,227.86s8.44,5.48,21.41,5.48,21.41-5.48,21.41-5.48M238.55,205.49v-32.96s-2.33-37.35,15.65-44.4c0,0-6.69-6.32-23.79,5.4,0,0-5.39-16.02,5.95-27.56,0,0-19.66-4.45-30.25,17.39,0,0-10.18-17.57,4.79-29.47,0,0-25.14-4.41-31.69,27.32-6.55-31.72-31.69-27.32-31.69-27.32,14.96,11.9,4.79,29.47,4.79,29.47-10.59-21.84-30.25-17.39-30.25-17.39,11.34,11.54,5.95,27.56,5.95,27.56-17.1-11.72-23.79-5.4-23.79-5.4,17.98,7.05,15.65,44.4,15.65,44.4v32.96h118.7ZM119.85,205.49c5.99,28.58,29.17,52.1,59.31,52.1s53.32-23.51,59.39-52.1h-118.7Z" />
+          </svg>
+        </div>
+      </label>
+    </div>
+    <h2>Change Angles</h2>
+    <div class="controls" id="controlAngle">
+      <button class="cycleAnglesButtons" id="cycleAnglesButtonL">
+        <img src="https://nariesu.com/prison_realm/images/icons/arrowl_icon.svg">
+      </button>
+
+      <label for="angle1" class="angleIndicator">
+        <input type="radio" name="controlAngle" id="angle1" checked>
+      </label>
+      <label for="angle2" class="angleIndicator">
+        <input type="radio" name="controlAngle" id="angle2">
+      </label>
+      <label for="angle3" class="angleIndicator">
+        <input type="radio" name="controlAngle" id="angle3">
+      </label>
+      <label for="angle4" class="angleIndicator">
+        <input type="radio" name="controlAngle" id="angle4">
+      </label>
+      <label for="angle5" class="angleIndicator">
+        <input type="radio" name="controlAngle" id="angle5">
+      </label>
+      <label for="angle6" class="angleIndicator">
+        <input type="radio" name="controlAngle" id="angle6">
+      </label>
+
+      <button class="cycleAnglesButtons" id="cycleAnglesButtonR">
+        <img src="https://nariesu.com/prison_realm/images/icons/arrowr_icon.svg">
+      </button>
+    </div>
+
+    <div id="headerButtons">
+      <a href="#" id="homeButton"><img src="images/icons/home.svg"></a>
+      <button id="infoButton">
+        <img src="https://nariesu.com/prison_realm/images/icons/info_icon.svg" title="Information" alt="A lowercase 'i' inside a circle.">
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section id="prisonRealmContainer">
+      <img src="https://nariesu.com/prison_realm/images/blindfoldedIdiot.png" alt="Gojo (blindfolded idiot)" id="blindfoldedIdiot">
+      <div id="prisonRealm">
+        <div id="openState">
+          <div id="cornerTopLeft" class="openStateCorner"></div>
+          <div id="cornerTopRight" class="openStateCorner"></div>
+          <div id="cornerBottomLeft" class="openStateCorner"></div>
+          <div id="cornerBottomRight" class="openStateCorner"></div>
+        </div>
+        <div id="cubeFace1" class="cubeface">
+          <div class="backgroundImgLayer"></div>
+          <div class="backgroundColorLayer"></div>
+        </div>
+        <div id="cubeFace2" class="cubeface">
+          <div class="backgroundImgLayer"></div>
+          <div class="backgroundColorLayer"></div>
+        </div>
+        <div id="cubeFace3" class="cubeface">
+          <div class="backgroundImgLayer"></div>
+          <div class="backgroundColorLayer"></div>
+        </div>
+        <div id="cubeFace4" class="cubeface">
+          <div class="backgroundImgLayer"></div>
+          <div class="backgroundColorLayer"></div>
+        </div>
+        <div id="cubeFace5" class="cubeface">
+          <div class="backgroundImgLayer"></div>
+          <div class="backgroundColorLayer"></div>
+        </div>
+        <div id="cubeFace6" class="cubeface">
+          <div class="backgroundImgLayer"></div>
+          <div class="backgroundColorLayer"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="info" class="closed">
+      <div class="container">
+        <button id="closeButton" title="Close">
+          <img src="https://nariesu.com/prison_realm/images/icons/x.svg">
+        </button>
+        <h2>Information</h2>
+
+        <section>
+          <input type="checkbox" id="howToPlay" class="collapse-toggle" checked>
+          <label for="howToPlay" class="collapse-label">
+            <h3>How to Play</h3>
+            <img src="https://nariesu.com/prison_realm/images/icons/collapse.svg">
+          </label>
+          <div class="collapse">
+            <section>
+              <h4>Changing Angles</h4>
+              <div id="angleControlExample" alt="Example of the controls.">
+                <img src="https://nariesu.com/prison_realm/images/icons/arrowl_icon.svg">
+                <div class="angleIndicator" style="background-color: white;"></div>
+                <div class="angleIndicator"></div>
+                <div class="angleIndicator"></div>
+                <div class="angleIndicator"></div>
+                <div class="angleIndicator"></div>
+                <div class="angleIndicator"></div>
+                <img src="https://nariesu.com/prison_realm/images/icons/arrowr_icon.svg">
+              </div>
+              <p>
+                To change the angle of the Prison Realm (cube), use the right or left arrows to cycle through the angles
+                or click on any of the boxes. The selected angle will have a highlighted box.
+              </p>
+            </section>
+
+            <section>
+              <h4>About Stages & Transformations</h4>
+              <p>There are three states: <span class="red">Empty (red),</span> <span class="gray">Sealed (gray),</span>
+                <span class="blue">and Gojo (blue).</span>
+              </p>
+              <ul id="pictureBullets">
+                <li>
+                  <img src="images/icons/reset_icon.svg">
+                  <p><span class="highlight red">Empty State</span> <span class="red">(default):</span> The default
+                    state.
+                    Rotating the Prison Realm is enabled.
+                    This can be toggled to reset the angle or the cube's states at any time. The Prison Realm,
+                    background
+                    color, and the irises of the eyes are red.
+                  </p>
+                </li>
+                <li>
+                  <img src="images/icons/close_icon.svg">
+                  <p><span class="highlight gray">Sealed State:</span> The second state. This is the state that follows
+                    the
+                    <span class="highlight">Sealing Transformation.</span> The eyes on the Prison Realm will be closed.
+                    Additionally, the Prison Realm and the background color are gray.
+                  </p>
+                </li>
+                <li>
+                  <img src="images/icons/gojo_icon.svg">
+                  <p><span class="highlight blue">Gojo State:</span> The final state. If the Prison Realm is <span
+                      class="highlight red">Empty,</span> then an alternate version of the
+                    <span class="highlight">Sealing Transformation</span> will play where a stupid Gojo plush flies into
+                    the opened Prison Realm. <span class="highlight">After about fifteen seconds</span> of it being in
+                    the <span class="highlight gray">Sealed State</span>, the Prison Realm will (hopefully correctly)
+                    fall
+                    to the bottom of the page, open its now-blue eyes, and change the background color to blue. The eyes
+                    will frantically look around for a couple seconds until
+                    it resumes its normal blinking animation. <span class="highlight">You will be unable to change the
+                      angles
+                      at this state.</span>
+                  </p>
+                </li>
+              </ul>
+            </section>
+
+            <p><span class="highlight">Sealing Transformation:</span> The Prison Realm changes angles to temporarily
+              appear 2D, then
+              will perform an animation where the Prison Realm splits into fours to reveal a creepy, large eye. After
+              a few seconds, the Prison Realm will close, turn gray, and reveal its now-closed eyes.
+              <span class="highlight">You will also be unable to change the angles during this animation.</span>
+            </p>
+
+          </div>
+        </section>
+
+        <section>
+          <input type="checkbox" id="FAQ" class="collapse-toggle">
+          <label for="FAQ" class="collapse-label">
+            <h3>FAQ</h3>
+            <img src="https://nariesu.com/prison_realm/images/icons/collapse.svg">
+          </label>
+          <div class="collapse">
+            <h4>Why did you make this?</h4>
+            <ul>
+              <li>The idea popped into my mind randomly one day and I immediately decided that I needed to try to
+                pull this off.</li>
+              <li>I also might be insane.</li>
+            </ul>
+
+            <h4>How did you make this?</h4>
+            <ul>
+              <li>I'm planning on writing about that soon&mdash; there were a lot of steps involved. In the meantime, if
+                you're really curious, feel free to contact me.</li>
+            </ul>
+
+            <h4>What software did you use?</h4>
+            <ul>
+              <li>This site was made with HTML, a lot of CSS, and JavaScript.</li>
+              <ul>
+                <li>I will be fully transparent here&mdash; I used ChatGTP for most of the JavaScript because I am weak.
+                </li>
+              </ul>
+              <li>The animation for the blinking eyes, and the animation for the eyes looking around was made in After
+                Effects.</li>
+              <li>All icons were made in Illustrator.</li>
+            </ul>
+
+            <h4>How long did this take?</h4>
+            <ul>
+              <li>About two weeks.</li>
+            </ul>
+
+            <h4>Why did you use that image of Squishmallow Gojo?</h4>
+            <ul>
+              <li>Funny.</li>
+            </ul>
+
+            <h4>I think you should do [suggestion]. Do you think you'll do that?</h4>
+            <div class="iframeContainer">
+              <iframe class="responsiveiFrame" width="560" height="315"
+                src="https://www.youtube.com/embed/8SFnIi2mMIQ?si=L0K8UCPMTEq5amxh" title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
+                alt="A clip of Elijah Wood saying maybe in a confused yet alightly-enthusiastic tone."></iframe>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <input type="checkbox" id="bugsAndIssues" class="collapse-toggle">
+          <label for="bugsAndIssues" class="collapse-label">
+            <h3>Potential Bugs & Issues</h3>
+            <img src="https://nariesu.com/prison_realm/images/icons/collapse.svg">
+          </label>
+          <div class="collapse">
+            <ul>
+              <li>Gojo State</li>
+              <ul>
+                <li>The animation of the eyes looking around may be out of sync and/or start at the wrong time.</li>
+                <li>During the Gojo State, the cube may get cut off it goes too far down the bottom of the screen.</li>
+              </ul>
+              <li>Mobile</li>
+              <ul>
+                <li>Eyes may not appear or randomly disappear on the Prison Realm. This can be resolved by refreshing
+                  the page.</li>
+                <li>There's a possibility that the page may get stuck if you scroll down or zoom in on the page.</li>
+                <li>The animation of the eyes looking around may lag.</li>
+                <li><span class="highlight">On newer iOS devices (at least iPhone models newer than 13):</span> The
+                  prison realm may clip through the information menu. This is due to some weird bug on Apple's end.</li>
+              </ul>
+              <li>There's a possibility for animations to become out of sync.</li>
+              <li>Animations flickering.</li>
+              <li>Long load times.</li>
+              <li>If you rapidly toggle between the "change states" buttons, you will probably break the animation.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <input type="checkbox" id="toDo" class="collapse-toggle">
+          <label for="toDo" class="collapse-label">
+            <h3>To-Do List</h3>
+            <img src="https://nariesu.com/prison_realm/images/icons/collapse.svg">
+          </label>
+          <div class="collapse">
+            <ul>
+              <li>Add more alternate descriptions and just make it more accessible overall.</li>
+              <li>Create a backlink to my homepage.</li>
+              <li>Create touch controls for the cube for mobile devices.</li>
+              <li>Add more to the FAQ.</li>
+              <li>Add a cooldown for toggling the "change state" buttons so the animations cannot get broken.</li>
+              <li>(The probability of doing this is low because of the sheer amount of involvement) create a "toybox"
+                mode where users can enter keywords and trigger different animations and whatnot.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <input type="checkbox" id="updates" class="collapse-toggle">
+          <label for="updates" class="collapse-label">
+            <h3>Updates</h3>
+            <img src="https://nariesu.com/prison_realm/images/icons/collapse.svg">
+          </label>
+          <div class="collapse">
+            <ul>
+              <li>Beta 1.2.0. (April 12, 2025)</li>
+              <ul>
+                <li>Gojo state</li>
+                <ul>
+                  <li>The eyes shfiting around animation should definitely be consistantly synced together.</li>
+                  <li>Fixed animation so eyes on the other half of the cube face was still apparent in the animation.
+                  </li>
+                  <li>Added a drop shadow to the UI to make it more legible.</li>
+                </ul>
+                <li>Mobile</li>
+                <ul>
+                  <li>On mobile devices, the screen should not get stuck if user accidentally scrolls down or zooms in
+                    on webpage.</li>
+                  <li>Hopefully, the cube will not clip through the information menu, but my confidence in this is low.
+                  </li>
+                </ul>
+              </ul>
+              <li>Beta 1.1.0. (March 29, 2025)</li>
+              <ul>
+                <li>Added collapse menus to information (this page).</li>
+                <li>Listed more bugs.</li>
+              </ul>
+            </ul>
+          </div>
+        </section>
+
+        <p id="version">Beta 1.2.0. (GitHub)</p>
+      </div>
+    </section>
+
+  </main>
+</body>
+
+</html>

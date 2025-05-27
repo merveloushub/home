@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="close_button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #585a5a;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 10px;
+      }
+    </style>
+  </defs>
+  <path class="cls-1" d="M62.4,62.4v233.6L4,237.6V4l58.4,58.4ZM62.4,62.4v233.6h233.6V62.4H62.4ZM237.6,4H4l58.4,58.4h233.6L237.6,4Z"/>
+  <path class="cls-1" d="M227.76,130.64c2.59,56.27-40.85,99.7-97.11,97.11"/>
+</svg>
