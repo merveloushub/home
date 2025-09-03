@@ -1,0 +1,137 @@
+/* ROOT */
+:root {
+    --bread: #d38e67;
+    --nobun: 0.125em dashed #d38e67;
+
+    --brown: #723821;
+    --caramel: #ff9659;
+    --cream: #ffeccb;
+    --green: #538746;
+    --red: #B43B3B;
+    --offwhite: #eef2ff;
+    --orange: #ec6e19;
+    --purple: #6d2b62;
+    --yellow: #ffb12c;
+    --yellowgreen: #a39c36;
+
+    --cheese: #ffdf87;
+    --beef: #8a2d35;
+    --chicken: #DFA597;
+    --eggs: #ffbf58;
+    --fish: #FEC89F;
+    --pork: #B56966;
+    --turkey: #FAD4C2;
+    --other: #A04B4E;
+
+    --mustard: #b87b1a;
+    --sprinkles: #f39bd1;
+
+    --darktext: #000000e1;
+    ;
+}
+
+/* general colors */
+.brown {
+    background-color: var(--brown);
+}
+
+.caramel {
+    background-color: var(--caramel);
+    color: var(--darktext);
+}
+
+.cream {
+    background-color: var(--cream);
+    color: var(--darktext);
+}
+
+.green {
+    background-color: var(--green);
+}
+
+.offwhite {
+    background-color: var(--offwhite);
+    color: var(--darktext)
+}
+
+.orange {
+    background-color: var(--orange);
+    color: var(--darktext);
+}
+
+.purple {
+    background-color: var(--purple);
+}
+
+.red {
+    background-color: var(--red);
+}
+
+.white {
+    background-color: white;
+    color: var(--darktext);
+}
+
+.yellow {
+    background-color: var(--yellow);
+    color: var(--darktext);
+}
+
+.yellowgreen {
+    background-color: var(--yellowgreen);
+    color: var(--darktext);
+}
+
+/* specific */
+.beef {
+    background-color: var(--beef);
+}
+
+.cheese {
+    background-color: var(--cheese);
+    color: var(--darktext);
+}
+
+.chicken {
+    background-color: var(--chicken);
+    color: var(--darktext);
+}
+
+.eggs {
+    background-color: var(--eggs);
+    color: var(--darktext);
+}
+
+.fish {
+    background-color: var(--fish);
+    color: var(--darktext);
+}
+
+.mustard {
+    background-color: var(--mustard);
+}
+
+.other {
+    background-color: var(--other);
+}
+
+.pork {
+    background-color: var(--pork);
+}
+
+.sprinkles {
+    background-color: var(--sprinkles);
+    color: var(--darktext);
+}
+
+.turkey {
+    background-color: var(--turkey);
+    color: var(--darktext);
+}
+
+/* none */
+.nobun {
+    background-color: #c4866252;
+    border: var(--nobun);
+    color: white !important;
+}
