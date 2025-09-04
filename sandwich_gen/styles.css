@@ -2,19 +2,87 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
 
 /* RESET */
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
     margin: 0;
     padding: 0;
     border: 0;
@@ -24,8 +92,17 @@ time, mark, audio, video {
 }
 
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
     display: block;
 }
 
@@ -33,16 +110,20 @@ body {
     line-height: 1;
 }
 
-ol, ul {
+ol,
+ul {
     list-style: none;
 }
 
-blockquote, q {
+blockquote,
+q {
     quotes: none;
 }
 
-blockquote:before, blockquote:after,
-q:before, q:after {
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
     content: '';
     content: none;
 }
@@ -59,21 +140,21 @@ table {
     --accent3: #afb6c9;
 }
 
+
+/* ---------------------------------------- */
 /* GLOBAL */
 body {
+    background-image: url(/assets/background.jpg);
     background-color: var(--accent);
     color: white;
     font-family: "lexend", sans-serif;
     font-size: 16px;
     font-weight: 400;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
     overflow-x: hidden;
 }
 
-h1, h2 {
+h1,
+h2 {
     font-weight: bold;
     text-align: center;
 }
@@ -87,36 +168,73 @@ h2 {
 }
 
 .wrapper {
-    max-width: 1000px;
-    padding: 2.5em;
-    box-shadow: 0em 0em 1em var(--accent);
-    margin: 0 auto;
-    overflow-x: hidden;
-    height: 100%;
-}
+    width: 100vw;
+    height: 100vh;
 
-.wrapper, button {
-    border-radius: 0.25em;
-}
-
-main, ul {
     display: flex;
     flex-flow: column nowrap;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-flow: column nowrap;
+    max-width: 750px;
+    height: 1000px;
+    gap: 2em;
+    padding: 2em;
+    overflow-x: hidden
+}
+
+main section:first-child,
+button {
+    border-radius: 0.25em;
+    border: 0.125em white solid;
+}
+
+/* HEADER AND MAIN */
+main {
+    display: flex;
+    flex-flow: column nowrap;
+    height: 1000px;
     gap: 2em;
 }
 
+
+main section:first-child {
+    background-color: var(--accent);
+    padding: 2em;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+
+    row-gap: 1em;
+    column-gap: 2em;
+
+    height: 100%;
+}
+
+/* LIST AND LIST ITEMS*/
 ul {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+
+    padding: 2em;
     gap: 0.75em;
-    padding: 3em 0;
+    height: 100%;
 }
 
 li {
+    max-width: 250px;
     border-radius: 4em;
 }
 
-li, button {
+li,
+button {
     text-align: center;
     padding: 1em;
     min-width: 200px;
@@ -137,25 +255,12 @@ li:last-child {
     padding: 0.5em 1em;
 }
 
-main .wrapper {
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    margin: 0;
-
-    padding: 0;
-    margin: 0;
-    box-shadow: none;
-}
-
 /* button */
 
-.button-container {
+main section:nth-child(2) {
     display: flex;
-    flex-flow: row wrap;
     justify-content: center;
-    row-gap: 1em;
-    column-gap: 2em;
+    gap: 2em;
 }
 
 button {
@@ -165,7 +270,6 @@ button {
     background-color: transparent;
     color: white;
     cursor: pointer;
-    border: solid white 2px;
     padding: 0.5em
 }
 
@@ -174,18 +278,21 @@ button:hover {
     transition: 0.5s ease background-color;
 }
 
-#shareSandwich {
-    min-width: fit-content;
-    background-color: white;
-    border: none;
+#getSandwich {
+    height: 40px;
+    width: 200px;
 }
 
 #shareSandwich img {
     width: 2em;
 }
 
+#shareSandwich {
+    background-color: var(--accent);
+}
+
 #shareSandwich:hover {
-    background-color: var(--accent3);
+    background-color: var(--accent2);
     transition: 0.5s ease background-color;
 }
 
@@ -193,5 +300,13 @@ button:hover {
 @media (max-width: 480px) {
     body {
         font-size: 0.9em;
+    }
+
+    .container {
+        padding: 1em;
+    }
+
+    .container, main {
+        gap: 1em;
     }
 }
