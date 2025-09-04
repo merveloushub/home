@@ -170,6 +170,7 @@ h2 {
 .wrapper {
     width: 100vw;
     height: 100vh;
+    overflow-x: hidden;
 
     display: flex;
     flex-flow: column nowrap;
@@ -306,7 +307,12 @@ button:hover {
         padding: 1em;
     }
 
-    .container, main {
+    .container,
+    main {
         gap: 1em;
+    }
+
+    main {
+        height: fit-content;
     }
 }
