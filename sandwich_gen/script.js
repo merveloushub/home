@@ -92,6 +92,18 @@ function makeSandwich(topBun, ingredients, condiments, bottomBun) {
     renderItem(bottomBun);
 }
 
-// Initialize
+// initialize
 init();
 document.getElementById("getSandwich").addEventListener("click", init);
+
+document.getElementById("shareSandwich").addEventListener("click", () => {
+    const sandwichList = document.getElementById("sandwich-list");
+
+    html2canvas(sandwichList).then(canvas => {
+        // Turn screenshot into downloadable PNG
+        const link = document.createElement("a");
+        link.download = "sandwich.png";
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+    });
+});

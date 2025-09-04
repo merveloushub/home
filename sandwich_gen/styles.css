@@ -56,7 +56,7 @@ table {
 :root {
     --accent: #1c2542;
     --accent2: #363d57;
-    --accent3: #f0f4ff;
+    --accent3: #afb6c9;
 }
 
 /* GLOBAL */
@@ -148,6 +148,16 @@ main .wrapper {
     box-shadow: none;
 }
 
+/* button */
+
+.button-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    row-gap: 1em;
+    column-gap: 2em;
+}
+
 button {
     font-size: 1em;
     font-family: "lexend", sans-serif;
@@ -155,11 +165,27 @@ button {
     background-color: transparent;
     color: white;
     cursor: pointer;
-    border: solid white;
+    border: solid white 2px;
+    padding: 0.5em
 }
 
 button:hover {
     background-color: var(--accent2);
+    transition: 0.5s ease background-color;
+}
+
+#shareSandwich {
+    min-width: fit-content;
+    background-color: white;
+    border: none;
+}
+
+#shareSandwich img {
+    width: 2em;
+}
+
+#shareSandwich:hover {
+    background-color: var(--accent3);
     transition: 0.5s ease background-color;
 }
 

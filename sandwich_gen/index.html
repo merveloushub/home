@@ -8,23 +8,27 @@
 
     <link href="styles.css" rel="stylesheet" type="text/css" media="all">
     <link href="colors.css" rel="stylesheet" type="text/css" media="all">
-
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 </head>
 
 <body>
-    <div class="wrapper">
-        <main>
-            <h1>Cursed Sandwich Generator</h1>
+    <div class="bigger-wrapper">
+        <div class="wrapper">
+            <main>
+                <h1>Cursed Sandwich Generator</h1>
 
-            <div class="wrapper">
-                <button id="getSandwich">Get Sandwich</button>
-            </div>
-            <ul id="sandwich-list"></ul>
+                <div class="button-container">
+                    <button id="getSandwich">Make Sandwich</button>
+                    <button id="shareSandwich">
+                        <img src="/home/sandwich_gen/assets/export.svg">
+                    </button>
+                </div>
 
-            <p>Buns will match 25% of the time.</p>
-        </main>
+                <ul id="sandwich-list"></ul>
+            </main>
+        </div>
+        <script src="script.js"></script>
     </div>
-    <script src="script.js"></script>
 </body>
 
 </html>
