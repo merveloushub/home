@@ -144,7 +144,7 @@ table {
 /* ---------------------------------------- */
 /* GLOBAL */
 body {
-    background-image: url("/sandwich_gen/assets/background2.jpg");
+    background-image: url(https://merveloushub.github.io/home/sandwich_gen/assets/background.jpg);
     background-color: var(--accent);
     color: white;
     font-family: "lexend", sans-serif;
