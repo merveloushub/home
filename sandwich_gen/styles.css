@@ -144,7 +144,7 @@ table {
 /* ---------------------------------------- */
 /* GLOBAL */
 body {
-    background-image: url(/assets/background.jpg);
+    background-image: url(https://merveloushub.github.io/home/sandwich_gen/assets/background.jpg);
     background-color: var(--accent);
     color: white;
     font-family: "lexend", sans-serif;
@@ -170,6 +170,7 @@ h2 {
 .wrapper {
     width: 100vw;
     height: 100vh;
+    overflow-x: hidden;
 
     display: flex;
     flex-flow: column nowrap;
@@ -306,7 +307,12 @@ button:hover {
         padding: 1em;
     }
 
-    .container, main {
+    .container,
+    main {
         gap: 1em;
+    }
+
+    main {
+        height: fit-content;
     }
 }
