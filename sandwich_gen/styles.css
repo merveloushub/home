@@ -237,6 +237,8 @@ button:hover {
     position: relative;
     flex-flow: column nowrap;
     gap: 1em;
+    width: fit-content;
+    justify-content: flex-start;
 }
 
 ul.infoActive, button.infoActive {
@@ -259,17 +261,22 @@ ul.infoActive, button.infoActive {
 #infoContent ul {
     padding: 0;
     list-style-type: disc;
-    margin-left: 2em;
     gap: 0;
+    margin-left: 1.5em;
 }
 
 #infoContent ul li {
     background-color: transparent;
     color: white;
     text-align: left;
-    min-width: fit-content;
     padding: 0;
     line-height: 1.5em;
+    list-style-position: inside;
+}
+
+#infoContent ul, #infoContent li {
+    width: revert;
+    align-items: flex-start;
 }
 
 /* MEDIA */
