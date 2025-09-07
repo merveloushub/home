@@ -1,23 +1,58 @@
+// ------------------- LOAD DATA -------------------
 async function loadData() {
     const res = await fetch("data.json");
     if (!res.ok) throw new Error("Could not load data.json");
     return res.json();
 }
 
-let data;
-
+// ------------------- HELPERS -------------------
 function getRandomItem(array) {
     return array[Math.floor(Math.random() * array.length)];
 }
 
+// ------------------- MAKE SANDWICH -------------------
+function makeSandwich(topBun, ingredients, condiments, bottomBun) {
+    const sandwichContainer = document.getElementById("sandwich-list");
+    if (!sandwichContainer) return;
+
+    sandwichContainer.innerHTML = "";
+
+    function renderItem(item, extraClass = "") {
+        const li = document.createElement("li");
+        li.textContent = item.name || item; // buns are strings
+
+        // Add class for "none (open-faced)" buns
+        if ((typeof item === "string" && item === "none (open-faced)") ||
+            (item.name === "none (open-faced)")) {
+            li.classList.add("nobun");
+        }
+
+        // Add color class if item has color
+        if (item.color) {
+            li.classList.add(item.color.toLowerCase().replace(/\s+/g, '-'));
+        }
+
+        // Add any extra class (like condiments)
+        if (extraClass) li.classList.add(extraClass);
+
+        sandwichContainer.appendChild(li);
+    }
+
+    // Render order: top bun, condiments, ingredients, bottom bun
+    renderItem(topBun);
+    condiments.forEach(c => renderItem(c, "condiment-item"));
+    ingredients.forEach(renderItem);
+    renderItem(bottomBun);
+}
+
+// ------------------- INIT -------------------
 async function init() {
-    data = await loadData();
+    const data = await loadData();
     const buns = data.buns;
 
-    // STEP 1: CHOOSE BUNS
+    // ------------------- 1. CHOOSE BUNS -------------------
     let topBun = getRandomItem(buns);
 
-    // Bottom bun options: never "none (open-faced)"
     let bottomOptions = buns.filter(b => b !== "none (open-faced)");
     let bottomBun;
 
@@ -33,7 +68,7 @@ async function init() {
         }
     }
 
-    // STEP 2: CHOOSE CONDIMENTS
+    // ------------------- 2. CHOOSE CONDIMENTS -------------------
     let numCondiments = Math.floor(Math.random() * 4);
     let availableCondiments = [...data.condiments];
     let chosenCondiments = [];
@@ -43,7 +78,7 @@ async function init() {
         availableCondiments.splice(index, 1);
     }
 
-    // STEP 3: CHOOSE INGREDIENTS
+    // ------------------- 3. CHOOSE INGREDIENTS -------------------
     let numIngredients = Math.floor(Math.random() * 5) + 1;
     let availableIngredients = [...data.ingredients];
     let chosenIngredients = [];
@@ -53,67 +88,36 @@ async function init() {
         availableIngredients.splice(index, 1);
     }
 
-    // STEP 4: MAKE SANDWICH (single <ul>)
+    // ------------------- 4. RENDER SANDWICH -------------------
     makeSandwich(topBun, chosenIngredients, chosenCondiments, bottomBun);
 
-    // SEPARATE: COUNT INGREDIENTS AND CONDIMENTS AND DISPLAY IT
+    // ------------------- DISPLAY COUNTS -------------------
     const ingredientCount = data.ingredients.length;
     const condimentCount = data.condiments.length;
-    const totalCount = ingredientCount + condimentCount + 24;
+    const bunCount = buns.length;
+    const totalCount = ingredientCount + condimentCount + bunCount;
 
-    document.getElementById("ingredientCount").textContent = ingredientCount;
-    document.getElementById("condimentCount").textContent = condimentCount;
-    document.getElementById("totalCount").textContent = totalCount;
+    const ingredientSpan = document.getElementById("ingredientCount");
+    const condimentSpan = document.getElementById("condimentCount");
+    const bunSpan = document.getElementById("bunCount");
+    const totalSpan = document.getElementById("totalCount");
+
+    if (ingredientSpan) ingredientSpan.textContent = ingredientCount;
+    if (condimentSpan) condimentSpan.textContent = condimentCount;
+    if (bunSpan) bunSpan.textContent = bunCount;
+    if (totalSpan) totalSpan.textContent = totalCount;
 }
 
-function makeSandwich(topBun, ingredients, condiments, bottomBun) {
-    const sandwichContainer = document.getElementById("sandwich-list");
-    if (!sandwichContainer) return;
-    sandwichContainer.innerHTML = "";
-
-    function renderItem(item, extraClass = "") {
-        const li = document.createElement("li");
-        li.textContent = item.name || item; // buns are strings
-
-        // add "nobun" class if top or bottom bun is "none (open-faced)"
-        if ((typeof item === "string" && item === "none (open-faced)") || (item.name === "none (open-faced)")) {
-            li.classList.add("nobun");
-        }
-
-        // add color class if item has a color property
-        if (item.color) {
-            li.classList.add(item.color.toLowerCase().replace(/\s+/g, '-'));
-        }
-
-        // add any extra class passed (like "condiment-item")
-        if (extraClass) {
-            li.classList.add(extraClass);
-        }
-
-        sandwichContainer.appendChild(li); // append it to the container
-    }
-
-    // render in order
-    renderItem(topBun);
-    condiments.forEach(c => renderItem(c, "condiment-item"));
-    ingredients.forEach(renderItem);
-    renderItem(bottomBun);
-}
-
-init();
-
-// SHARE SANDWICH IMAGE 73, 79, 113
+// ------------------- EXPORT SANDWICH IMAGE -------------------
 async function exportSandwich() {
     const sandwich = document.getElementById('sandwich-list');
     if (!sandwich) return;
 
-    // use html2canvas with background color and padding
     const canvas = await html2canvas(sandwich, {
         backgroundColor: '#1c2542',
-        useCORS: false // don't try to load external images
+        padding: 16 // example padding
     });
 
-    // open generated image in a new tab
     const dataURL = canvas.toDataURL('image/png');
     const newTab = window.open();
     if (newTab) {
@@ -123,22 +127,74 @@ async function exportSandwich() {
     }
 }
 
-/* TOGGLE INFO */
-const toggleBtn = document.getElementById("infoToggle");
-const infoContent = document.getElementById("infoContent");
-const list = document.getElementById("sandwich-list");
-const closeBtn = document.getElementById("infoClose");
-const sandwichBtn = document.getElementById("getSandwich");
+// ------------------- TOGGLE INFO -------------------
+function setupToggleInfo() {
+    const toggleBtn = document.getElementById("infoToggle");
+    const infoContent = document.getElementById("infoContent");
+    const list = document.getElementById("sandwich-list");
+    const closeBtn = document.getElementById("infoClose");
+    const sandwichBtn = document.getElementById("getSandwich");
 
-function toggleInfo() {
-    infoContent.classList.toggle("infoActive");
-    list.classList.toggle("infoActive");
-    sandwichBtn.classList.toggle("infoActive");
+    function toggleInfo() {
+        infoContent.classList.toggle("infoActive");
+        list.classList.toggle("infoActive");
+        sandwichBtn.classList.toggle("infoActive");
+    }
+
+    if (toggleBtn) toggleBtn.addEventListener("click", toggleInfo);
+    if (closeBtn) closeBtn.addEventListener("click", () => {
+        infoContent.classList.remove("infoActive");
+        list.classList.remove("infoActive");
+        sandwichBtn.classList.remove("infoActive");
+    });
 }
 
-toggleBtn.addEventListener("click", toggleInfo);
-closeBtn.addEventListener("click", () => {
-    infoContent.classList.remove("infoActive");
-    list.classList.remove("infoActive");
-    sandwichBtn.classList.remove("infoActive");
+// ------------------- START -------------------
+document.addEventListener("DOMContentLoaded", () => {
+    init();
+    setupToggleInfo();
+    const sandwichBtn = document.getElementById("getSandwich");
+    if (sandwichBtn) {
+        sandwichBtn.addEventListener("click", async () => {
+            // just re-run init or the part that generates a new sandwich
+            const data = await loadData();
+
+            const buns = data.buns;
+            let topBun = getRandomItem(buns);
+            let bottomOptions = buns.filter(b => b !== "none (open-faced)");
+            let bottomBun;
+
+            if (topBun === "none (open-faced)") {
+                bottomBun = getRandomItem(bottomOptions);
+            } else {
+                bottomBun = getRandomItem(buns);
+                if (Math.random() < 0.25 && topBun !== "none (open-faced)") {
+                    bottomBun = topBun;
+                }
+                if (bottomBun === "none (open-faced)") {
+                    bottomBun = getRandomItem(bottomOptions);
+                }
+            }
+
+            let numCondiments = Math.floor(Math.random() * 4);
+            let availableCondiments = [...data.condiments];
+            let chosenCondiments = [];
+            for (let i = 0; i < numCondiments; i++) {
+                let index = Math.floor(Math.random() * availableCondiments.length);
+                chosenCondiments.push(availableCondiments[index]);
+                availableCondiments.splice(index, 1);
+            }
+
+            let numIngredients = Math.floor(Math.random() * 5) + 1;
+            let availableIngredients = [...data.ingredients];
+            let chosenIngredients = [];
+            for (let i = 0; i < numIngredients; i++) {
+                let index = Math.floor(Math.random() * availableIngredients.length);
+                chosenIngredients.push(availableIngredients[index]);
+                availableIngredients.splice(index, 1);
+            }
+
+            makeSandwich(topBun, chosenIngredients, chosenCondiments, bottomBun);
+        });
+    }
 });
