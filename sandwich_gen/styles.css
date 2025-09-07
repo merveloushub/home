@@ -107,26 +107,21 @@ a:hover, #infoClose:hover {
 }
 
 .wrapper {
-    width: 100vw;
-    height: 100vh;
-    overflow-x: hidden;
-
+    min-height: 100vh;
     display: flex;
-    flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
 }
 
 .container {
     display: flex;
     flex-flow: column nowrap;
     max-width: 750px;
-    width: calc(100% - 4em);
-    height: 820px;
+    width: 100%;
+    height: 1048px;
     gap: 2em;
     padding: 2em 0;
-    box-sizing: border-box;
-    overflow-x: hidden;
 }
 
 main section:first-child, button {
@@ -138,7 +133,7 @@ main section:first-child, button {
 main {
     display: flex;
     flex-flow: column nowrap;
-    height: 1000px;
+    height: auto;
     gap: 2em;
 }
 
@@ -154,7 +149,8 @@ main section:first-child {
     row-gap: 1em;
     column-gap: 2em;
 
-    height: 100%;
+    height: auto;
+    width: 100%;
 }
 
 /* LIST AND LIST ITEMS*/
@@ -162,16 +158,18 @@ ul {
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
+    align-items: center;
 
     padding: 2em;
     gap: 0.75em;
-    height: 100%;
+    height: auto;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 li {
-    max-width: 250px;
+    width: 225px;
     border-radius: 4em;
-    min-width: 200px;
 }
 
 li, button {
@@ -192,6 +190,10 @@ li:last-child {
 
 .condiment-item {
     padding: 0.5em 1em;
+}
+
+.container > *, ul, ul > li {
+    min-width: 0;
 }
 
 /* button */
@@ -271,20 +273,16 @@ ul.infoActive, button.infoActive {
 }
 
 /* MEDIA */
-@media (max-width: 480px) {
-    body {
-        font-size: 0.9em;
-    }
-
+@media (max-width: 768px) {
     .container {
-        width: calc(100% - 2em);
+        padding: 1em;
     }
 
-    .container, main {
-        gap: 1em;
+    ul {
+        padding: 1em;
     }
 
-    main {
-        height: fit-content;
+    li {
+        max-width: none;
     }
 }
