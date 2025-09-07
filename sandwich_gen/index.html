@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cursed Sandwich Generator</title>
+    <link rel="icon" type="image/x-icon" href="https://merveloushub.github.io/home/sandwich_gen/assets/favicon.png">
 
     <link href="styles.css" rel="stylesheet" type="text/css" media="all">
     <link href="colors.css" rel="stylesheet" type="text/css" media="all">
@@ -18,20 +19,79 @@
                 <h1>Cursed Sandwich Generator</h1>
             </header>
             <main>
-
                 <section>
-                    <button id="getSandwich">Make Sandwich</button>
-                <ul id="sandwich-list"></ul>
+                    <button id="getSandwich" aria-label="make sandwich">Make Sandwich</button>
+
+                    <section id="infoContent">
+                        <svg id="infoClose" class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x-icon lucide-x">
+                            <path d="M18 6 6 18" />
+                            <path d="m6 6 12 12" />
+                        </svg>
+                        <h2>Information</h2>
+                        <p>There are 24 different types of buns, <span id="ingredientCount"></span> ingredients, and
+                            <span id="condimentCount"></span> condiments—
+                            A total of <span id="totalCount"></span> items available.
+                        </p>
+                        <h3>Generation</h3>
+                        <ul>
+                            <li>There can be 0-3 condiments generated.</li>
+                            <li>There can be 1-5 ingredients generated.</li>
+                            <li>Buns will match 25% of the time.</li>
+                        </ul>
+                        <h3>Rationale</h3>
+                        <ul>
+                            <li>Items had to be things that are typically put in a sandwiches, OR is a key item in an
+                                established sandwich.</li>
+                            <li>If an item appeared on Wikipedia's
+                                <a href="https://en.wikipedia.org/wiki/List_of_sandwiches" target="_blank"
+                                    rel="noopener noreferrer">List of Sandwiches</a> more than once, then I added the
+                                ingredient to the generator.
+                            </li>
+                            <li>This is why there are some weird items on the list.</li>
+                            <li>If there is an item generated that makes you go "why the hell is that there?", that's
+                                probably why.</li>
+                            <li>Here's an explanations for some of the following sandwich ingredients:</li>
+                            <ul>
+                                <li>Kiwis, oranges, strawberries, and whipped cream: from Japanese sandos.</li>
+                                <li>Salsa: a common component in Latin American sandwiches, such as choripáns.</li>
+                                <li>Sprinkles: from fairy bread.</li>
+                            </ul>
+                            <li>If a sandwich ingredient is not specified (e.g., chutney, pâté, fried fish) then use
+                                your imagination.</li>
+                        </ul>
+                    </section>
+
+                    <ul id="sandwich-list" aria-label="generated sandwich"></ul>
                 </section>
 
                 <section>
-                    <button id="shareSandwich">Share Sandwich</button>
+                    <button id="shareSandwich" onclick="exportSandwich()" aria-label="share sandwich">
+                        Share
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-share-icon lucide-share">
+                            <path d="M12 2v13" />
+                            <path d="m16 6-4-4-4 4" />
+                            <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
+                        </svg>
+                    </button>
+                    <button id="infoToggle" aria-label="information button">
+                        Info
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-info-icon lucide-info">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M12 16v-4" />
+                            <path d="M12 8h.01" />
+                        </svg>
+                    </button>
                 </section>
-
             </main>
-            <script src="script.js"></script>
         </div>
     </div>
+    <script src="script.js"></script>
 </body>
 
 </html>

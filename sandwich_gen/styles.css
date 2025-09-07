@@ -2,87 +2,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
 
 /* RESET */
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
     margin: 0;
     padding: 0;
     border: 0;
@@ -90,44 +22,25 @@ video {
     font: inherit;
     vertical-align: baseline;
 }
-
 /* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
     display: block;
 }
-
 body {
     line-height: 1;
 }
-
-ol,
-ul {
+ol, ul {
     list-style: none;
 }
-
-blockquote,
-q {
+blockquote, q {
     quotes: none;
 }
-
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
+blockquote:before, blockquote:after,
+q:before, q:after {
     content: '';
     content: none;
 }
-
 table {
     border-collapse: collapse;
     border-spacing: 0;
@@ -135,36 +48,62 @@ table {
 
 /* ROOT */
 :root {
-    --accent: #1c2542;
-    --accent2: #363d57;
-    --accent3: #afb6c9;
+    --background: #1c2542;
+    --hover: #313c5c;
+    --accent3: #9bace7;
 }
-
 
 /* ---------------------------------------- */
 /* GLOBAL */
+* {
+    box-sizing: border-box;
+}
+
 body {
     background-image: url(https://merveloushub.github.io/home/sandwich_gen/assets/background.jpg);
-    background-color: var(--accent);
+    background-color: var(--background);
     color: white;
     font-family: "lexend", sans-serif;
     font-size: 16px;
     font-weight: 400;
+    line-height: 1.5em;
     overflow-x: hidden;
+    position: relative;
 }
 
-h1,
-h2 {
+h1, h2 {
     font-weight: bold;
     text-align: center;
 }
 
+h2, h3 {
+    text-align: left;
+}
+
 h1 {
     font-size: 2.25em;
+    line-height: 1em;
+    text-shadow: 0 0 0.5em black;
 }
 
 h2 {
-    font-size: 2em;
+    font-size: 1.5em;
+}
+
+h3 {
+    font-size: 1.25em;
+    font-weight: 500;
+}
+
+a, #infoClose {
+    color: var(--accent3);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover, #infoClose:hover {
+    color: #d1d7f0;
+    transition: 0.5s ease;
 }
 
 .wrapper {
@@ -182,14 +121,15 @@ h2 {
     display: flex;
     flex-flow: column nowrap;
     max-width: 750px;
-    height: 1000px;
+    width: calc(100% - 4em);
+    height: fit-content;
     gap: 2em;
-    padding: 2em;
-    overflow-x: hidden
+    padding: 2em 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
-main section:first-child,
-button {
+main section:first-child, button {
     border-radius: 0.25em;
     border: 0.125em white solid;
 }
@@ -202,9 +142,8 @@ main {
     gap: 2em;
 }
 
-
 main section:first-child {
-    background-color: var(--accent);
+    background-color: var(--background);
     padding: 2em;
 
     display: flex;
@@ -232,13 +171,12 @@ ul {
 li {
     max-width: 250px;
     border-radius: 4em;
+    min-width: 200px;
 }
 
-li,
-button {
+li, button {
     text-align: center;
     padding: 1em;
-    min-width: 200px;
     background-color: var(--bread);
 }
 
@@ -257,44 +195,79 @@ li:last-child {
 }
 
 /* button */
-
 main section:nth-child(2) {
     display: flex;
     justify-content: center;
     gap: 2em;
 }
 
+main section:nth-child(2) button {
+    display: flex;
+    gap: 0.5em;
+    justify-content: center;
+    align-items: center;
+}
+
 button {
     font-size: 1em;
     font-family: "lexend", sans-serif;
 
-    background-color: transparent;
+    background-color: var(--background);
     color: white;
     cursor: pointer;
-    padding: 0.5em
+    padding: 1em 1.5em;
 }
 
 button:hover {
-    background-color: var(--accent2);
+    background-color: var(--hover);
     transition: 0.5s ease background-color;
 }
 
-#getSandwich {
-    height: 40px;
-    width: 200px;
+/* ICONS */
+.icon {
+    color: white;
 }
 
-#shareSandwich img {
+/* INFO */
+#infoContent {
+    background-color: var(--background);
+    display: none;
+    position: relative;
+    flex-flow: column nowrap;
+    gap: 1em;
+}
+
+ul.infoActive, button.infoActive {
+    display: none;
+}
+
+#infoContent.infoActive {
+    display: flex;
+}
+
+#infoClose {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
     width: 2em;
+    aspect-ratio: 1;
 }
 
-#shareSandwich {
-    background-color: var(--accent);
+#infoContent ul {
+    padding: 0;
+    list-style-type: disc;
+    margin-left: 2em;
+    gap: 0;
 }
 
-#shareSandwich:hover {
-    background-color: var(--accent2);
-    transition: 0.5s ease background-color;
+#infoContent ul li {
+    background-color: transparent;
+    color: white;
+    text-align: left;
+    min-width: fit-content;
+    padding: 0;
+    line-height: 1.5em;
 }
 
 /* MEDIA */
@@ -304,11 +277,10 @@ button:hover {
     }
 
     .container {
-        padding: 1em;
+        width: calc(100% - 2em);
     }
 
-    .container,
-    main {
+    .container, main {
         gap: 1em;
     }
 

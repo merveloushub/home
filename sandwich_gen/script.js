@@ -33,7 +33,6 @@ async function init() {
         }
     }
 
-    
     // STEP 2: CHOOSE CONDIMENTS
     let numCondiments = Math.floor(Math.random() * 4);
     let availableCondiments = [...data.condiments];
@@ -56,6 +55,15 @@ async function init() {
 
     // STEP 4: MAKE SANDWICH (single <ul>)
     makeSandwich(topBun, chosenIngredients, chosenCondiments, bottomBun);
+
+    // SEPARATE: COUNT INGREDIENTS AND CONDIMENTS AND DISPLAY IT
+    const ingredientCount = data.ingredients.length;
+    const condimentCount = data.condiments.length;
+    const totalCount = ingredientCount + condimentCount + 24;
+
+    document.getElementById("ingredientCount").textContent = ingredientCount;
+    document.getElementById("condimentCount").textContent = condimentCount;
+    document.getElementById("totalCount").textContent = totalCount;
 }
 
 function makeSandwich(topBun, ingredients, condiments, bottomBun) {
@@ -92,18 +100,45 @@ function makeSandwich(topBun, ingredients, condiments, bottomBun) {
     renderItem(bottomBun);
 }
 
-// initialize
 init();
-document.getElementById("getSandwich").addEventListener("click", init);
 
-document.getElementById("shareSandwich").addEventListener("click", () => {
-    const sandwichList = document.getElementById("sandwich-list");
+// SHARE SANDWICH IMAGE 73, 79, 113
+async function exportSandwich() {
+    const sandwich = document.getElementById('sandwich-list');
+    if (!sandwich) return;
 
-    html2canvas(sandwichList).then(canvas => {
-        // Turn screenshot into downloadable PNG
-        const link = document.createElement("a");
-        link.download = "sandwich.png";
-        link.href = canvas.toDataURL("image/png");
-        link.click();
+    // use html2canvas with background color and padding
+    const canvas = await html2canvas(sandwich, {
+        backgroundColor: '#1c2542',
+        useCORS: false // don't try to load external images
     });
+
+    // open generated image in a new tab
+    const dataURL = canvas.toDataURL('image/png');
+    const newTab = window.open();
+    if (newTab) {
+        const img = newTab.document.createElement('img');
+        img.src = dataURL;
+        newTab.document.body.appendChild(img);
+    }
+}
+
+/* TOGGLE INFO */
+const toggleBtn = document.getElementById("infoToggle");
+const infoContent = document.getElementById("infoContent");
+const list = document.getElementById("sandwich-list");
+const closeBtn = document.getElementById("infoClose");
+const sandwichBtn = document.getElementById("getSandwich");
+
+function toggleInfo() {
+    infoContent.classList.toggle("infoActive");
+    list.classList.toggle("infoActive");
+    sandwichBtn.classList.toggle("infoActive");
+}
+
+toggleBtn.addEventListener("click", toggleInfo);
+closeBtn.addEventListener("click", () => {
+    infoContent.classList.remove("infoActive");
+    list.classList.remove("infoActive");
+    sandwichBtn.classList.remove("infoActive");
 });
