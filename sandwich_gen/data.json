@@ -39,6 +39,7 @@
     { "name": "bologna", "color": "pork" },
     { "name": "brie", "color": "cheese" },
     { "name": "cabbage", "color": "green" },
+    { "name": "capers", "color": "yellowgreen" },
     { "name": "carrots", "color": "orange" },
     { "name": "cheddar", "color": "cheese" },
     { "name": "chicken breast", "color": "chicken" },
