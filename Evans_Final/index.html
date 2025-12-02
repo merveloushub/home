@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Saturn Sound</title>
+		<meta name="author" content="Meredith Evans">
+		<meta name="description" content="final project">
+
+		<!-- GOOGLE FONTS -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Syncopate:wght@400;700&display=swap"
+			rel="stylesheet"
+		/>
+
+		<!-- 
+		SOURCES
+			Images from Unsplash
+				Hero: https://unsplash.com/photos/black-and-red-corded-headphones-on-white-table-w5m3PIGvkqI
+				Feature 1: https://unsplash.com/photos/woman-in-black-and-white-striped-long-sleeve-shirt-writing-on-white-paper-5Wj_tk8_Ens
+				Feature 2: https://unsplash.com/photos/a-man-with-headphones-on-walking-down-the-street-c8d1h9J8h2c
+				Feature 3: https://unsplash.com/photos/woman-in-white-shirt-wearing-black-knit-cap-d7JCyFstmqM
+
+			Icons from Lucide
+				https://lucide.dev/
+
+			Saturn icon from Adobe Stock
+				https://stock.adobe.com/search?k=saturn+logo&asset_id=750483674
+
+			The product images were made in Adobe Dimensions with stock assets
+				Dione: https://stock.adobe.com/search/3d-assets?load_type=search&is_recent_search=&search_type=usertyped&k=headphones&native_visual_search=&similar_content_id=&asset_id=368055416
+				Enceladus: https://stock.adobe.com/search/3d-assets?load_type=search&is_recent_search=&search_type=usertyped&k=headphones&native_visual_search=&similar_content_id=&asset_id=367819509
+				Mimas: https://stock.adobe.com/search/3d-assets?load_type=search&is_recent_search=&search_type=usertyped&k=headphones&native_visual_search=&similar_content_id=&asset_id=248056065
+				Titan: https://stock.adobe.com/search/3d-assets?load_type=search&is_recent_search=&search_type=usertyped&k=headphones&native_visual_search=&similar_content_id=&asset_id=369770738
+		-->
+
+		<link rel="icon" href="assets/icons/saturn.svg">
+		<link rel="stylesheet" href="styles.css">
+		<script src="script.js" defer></script>
+	</head>
+	<body>
+		<section id="popup" class="hidden">
+			<div class="container">
+				<div>
+					<h2>Thank you!</h2>
+					<h3>Your form has been submitted</h3>
+				</div>
+				<button
+					id="closePopup"
+					class="button-icon"
+					aria-label="Close popup."
+				></button>
+				<div id="popupContainer"></div>
+			</div>
+		</section>
+
+		<div class="wrapper">
+			<header id="top">
+				<div>
+					<a href="#">
+						<h1 class="logo">
+							<span>Saturn</span><span aria-label="Saturn Sound logo"></span><span>Sound</span>
+						</h1>
+					</a>
+					<div class="nav-buttons">
+						<button
+							id="modeBtn"
+							class="button-icon"
+							aria-label="Change website theme."
+						></button>
+						<button
+							id="cart"
+							class="button-icon"
+							aria-label="Open items in checkout."
+						></button>
+					</div>
+				</div>
+
+				<nav>
+					<ul>
+						<li>
+							<a href="#features">Features</a>
+						</li>
+
+						<li>
+							<a href="#products">Products</a>
+						</li>
+
+						<li>
+							<a href="#hero">About</a>
+						</li>
+
+						<li>
+							<a href="#form">Contact</a>
+						</li>
+						<li>
+							<a href="#game">Game</a>
+						</li>
+					</ul>
+
+					<div class="nav-buttons">
+						<button
+							id="modeBtn"
+							class="button-icon"
+							aria-label="Change website theme."
+						></button>
+						<button
+							id="cart"
+							class="button-icon"
+							aria-label="Open items in checkout."
+						></button>
+					</div>
+				</nav>
+			</header>
+			<main>
+				<section id="hero">
+					<div class="container">
+						<div>
+							<div>
+								<h2>Sound that is out of this world</h2>
+
+								<p>
+									Expand your universe with Saturn Sound's newest lineup of
+									premium headphones.
+								</p>
+							</div>
+
+							<a href="#products" class="hero-button">Explore the Lineup</a>
+						</div>
+
+						<img
+							src="/assets/photos/hero.jpg"
+							alt="Pair of headphones on table."
+						/>
+					</div>
+				</section>
+
+				<section id="features">
+					<div class="container">
+						<div id="featureContent">
+							<h2>Features</h2>
+
+							<div id="feature1" class="feature">
+								<img
+									src="/assets/photos/1.jpg"
+									alt="A woman smiling, laying on the floor, wearing headphones. She is writing on a piece of paper next to her laptop."
+								/>
+								<h3>Supersonic sound</h3>
+								<p>
+									Engineered with the most immersive audio for luxury listening.
+								</p>
+							</div>
+
+							<div id="feature2" class="feature hidden">
+								<img
+									src="/assets/photos/2.jpg"
+									alt="The back of a man wearing headphones. He is in the city wearing a backpack."
+								/>
+								<h3>Eons of battery life</h3>
+
+								<p>
+									All headphone models have a battery life of at least 30 hours.
+								</p>
+							</div>
+
+							<div id="feature3" class="feature hidden">
+								<img
+									src="/assets/photos/3.jpg"
+									alt="A woman in a beanie listening to music through her headphones. A hand is placed on each side of the ear cup."
+								/>
+								<h3>Secure Fitting</h3>
+
+								<p>Ergonomic design meant to maximize comfort.</p>
+							</div>
+						</div>
+
+						<div id="featureBtns">
+							<button
+								id="featureBtn1"
+								class="active"
+								aria-label="Display information on high-quality sound."
+							>
+								High-quality sound
+							</button>
+							<button
+								id="featureBtn2"
+								aria-label="Display information on long-lasting battery."
+							>
+								Long-lasting batter
+							</button>
+							<button
+								id="featureBtn3"
+								aria-label="Display information on premium comfort."
+							>
+								Premium comfort
+							</button>
+						</div>
+					</div>
+				</section>
+
+				<section id="products">
+					<h2>Products</h2>
+					<div class="container">
+						<article>
+							<img
+								src="/assets/photos/product_dione.png"
+								alt="Dione model headphones."
+							/>
+							<div>
+								<h3>
+									<a>Dione</a>
+								</h3>
+								<p>Premium over-ear noise-cancelling headphones.</p>
+								<p>$220</p>
+							</div>
+						</article>
+
+						<article>
+							<img
+								src="/assets/photos/product_enceladus.png"
+								alt="Enceladus model headphones."
+							/>
+							<div>
+								<h3>
+									<a>Enceladus</a>
+								</h3>
+								<p>Advanced headphones with incredible sound.</p>
+								<p>$110</p>
+							</div>
+						</article>
+
+						<article>
+							<img
+								src="/assets/photos/product_mimas.png"
+								alt="Mimas model headphones."
+							/>
+							<div>
+								<h3>
+									<a>Mimas</a>
+								</h3>
+								<p>
+									Ultralight headphones with up to 50 hours of battery life.
+								</p>
+								<p>$180</p>
+							</div>
+						</article>
+
+						<article>
+							<img
+								src="/assets/photos/product_titan.png"
+								alt="Titan model headphones."
+							/>
+							<div>
+								<h3>
+									<a>Titan</a>
+								</h3>
+								<p>Now redesigned for increased comfort and durability.</p>
+								<p>$120</p>
+							</div>
+						</article>
+					</div>
+				</section>
+
+				<section id="form">
+					<div class="container">
+						<h2>Contact Us</h2>
+						<p>Replies may take 1-3 business days.</p>
+					</div>
+
+					<form>
+						<div>
+							<label for="name">Name <span class="required">*</span></label>
+							<input type="text" id="name" name="name">
+							<span class="error hidden" aria-live="polite">Name error.</span>
+						</div>
+						<fieldset>
+							<div>
+								<label for="email">Email <span class="required">*</span></label>
+								<input type="email" id="email" name="email">
+								<span class="error hidden" aria-live="polite">Email error.</span>
+							</div>
+
+							<div>
+								<label for="phone"
+									>Phone <span class="required hidden">*</span></label
+								>
+								<input type="tel" id="phone" name="phone">
+								<span class="error hidden" aria-live="polite">Phone error.</span>
+							</div>
+						</fieldset>
+
+						<fieldset id="contactPref">
+							<legend>
+								Which do you prefer? <span class="required">*</span>
+							</legend>
+
+							<div>
+								<input type="radio" id="emailPref" name="preference" checked>
+								<label for="emailPref">Email</label>
+							</div>
+
+							<div>
+								<input type="radio" id="phonePref" name="preference">
+								<label for="phonePref">Phone</label>
+							</div>
+							<span class="error hidden" aria-live="polite">Preference error.</span>
+						</fieldset>
+
+						<div>
+							<label for="message">
+								Message <span class="required">*</span></label
+							>
+							<textarea
+								id="message"
+								name="message"
+								rows="8"
+								placeholder="Your message here."
+							></textarea>
+							<span class="error hidden" aria-live="polite">Message error.</span>
+						</div>
+
+						<button type="submit" id="formSubmit">Submit</button>
+					</form>
+				</section>
+
+				<section id="game">
+					<div class="container">
+						<div>
+							<h2>Play & Win</h2>
+							<p>Try your chance to win a 10% coupon!</p>
+						</div>
+
+						<div class="game-section">
+							<div class="game-user-input">
+								<div>
+									<label for="userNum">Pick a number between 1-10</label>
+									<input type="number" id="userNum" name="userNum">
+									<span id="gameError" class="error hidden" aria-live="polite"
+										>Game input error.</span
+									>
+								</div>
+								<button type="button" id="gameSubmit">Take a Guess!</button>
+							</div>
+
+							<div id="gameResults">
+								<p id="winLoseMessage">Results Message</p>
+								<div class="game-results-display">
+									<p class="game-result-1">
+										<span>Your Guess</span>
+										<span id="userNumDisplay" class="game-num hidden">X</span>
+									</p>
+									<p class="game-result-2">
+										<span>Winning Number</span>
+										<span id="winningNumDisplay" class="game-num hidden"
+											>Y</span
+										>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</main>
+
+			<footer>
+				<h2 class="logo"><span>Saturn</span><span></span><span>Sound</span></h2>
+
+				<div class="container">
+					<p>
+						<span>MockupS by Meredith Evans 2025</span>
+						<a href="#top">Jump to top of page</a>
+					</p>
+					<ul>
+						<li>
+							<a
+								href="#"
+								aria-label="Instagram"
+								class="button-icon socials"
+							></a>
+						</li>
+
+						<li>
+							<a href="#" aria-label="Twitter" class="button-icon socials"></a>
+						</li>
+
+						<li>
+							<a href="#" aria-label="YouTube" class="button-icon socials"></a>
+						</li>
+					</ul>
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>
