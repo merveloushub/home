@@ -395,7 +395,7 @@ header div {
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
-	background-image: url(/assets/icons/saturn.svg);
+	background-image: url(https://merveloushub.github.io/home/Evans_Final/assets/icons/saturn.svg);
 }
 
 .nav-buttons {
@@ -403,17 +403,17 @@ header div {
 }
 
 [data-theme="dark"] #modeBtn {
-	mask: url(/assets/icons/moon.svg) no-repeat center;
+	mask: url(https://merveloushub.github.io/home/Evans_Final/assets/icons/moon.svg) no-repeat center;
 	mask-size: contain;
 }
 
 [data-theme="light"] #modeBtn {
-	mask: url(/assets/icons/sun.svg) no-repeat center;
+	mask: url(https://merveloushub.github.io/home/Evans_Final/assets/icons/sun.svg) no-repeat center;
 	mask-size: contain;
 }
 
 #cart {
-	mask: url(/assets/icons/cart.svg) no-repeat center;
+	mask: url(https://merveloushub.github.io/home/Evans_Final/assets/icons/cart.svg) no-repeat center;
 	mask-size: contain;
 }
 
@@ -739,7 +739,7 @@ input[type="radio"] {
 }
 
 #closePopup {
-	mask: url(/assets/icons/x.svg);
+	mask: url(https://merveloushub.github.io/home/Evans_Final/assets/icons/x.svg);
 	mask-size: contain;
 	position: absolute;
 	top: 0;
@@ -876,17 +876,17 @@ footer ul {
 }
 
 footer li:nth-child(1) {
-	mask: url(/assets/icons/instagram.svg) no-repeat center;
+	mask: url(https://merveloushub.github.io/home/Evans_Final/assets/icons/instagram.svg) no-repeat center;
 	mask-size: contain;
 }
 
 footer li:nth-child(2) {
-	mask: url(/assets/icons/twitter.svg) no-repeat center;
+	mask: url(https://merveloushub.github.io/home/Evans_Final/assets/icons/twitter.svg) no-repeat center;
 	mask-size: contain;
 }
 
 footer li:nth-child(3) {
-	mask: url(/assets/icons/youtube.svg) no-repeat center;
+	mask: url(https://merveloushub.github.io/home/Evans_Final/assets/icons/youtube.svg) no-repeat center;
 	mask-size: contain;
 }
 
