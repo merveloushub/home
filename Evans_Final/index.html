@@ -34,11 +34,17 @@
 				Enceladus: https://stock.adobe.com/search/3d-assets?load_type=search&is_recent_search=&search_type=usertyped&k=headphones&native_visual_search=&similar_content_id=&asset_id=367819509
 				Mimas: https://stock.adobe.com/search/3d-assets?load_type=search&is_recent_search=&search_type=usertyped&k=headphones&native_visual_search=&similar_content_id=&asset_id=248056065
 				Titan: https://stock.adobe.com/search/3d-assets?load_type=search&is_recent_search=&search_type=usertyped&k=headphones&native_visual_search=&similar_content_id=&asset_id=369770738
+
+			Confetti Code
+				https://github.com/tsparticles/presets/tree/main
 		-->
 
 		<link rel="icon" href="assets/icons/saturn.svg">
 		<link rel="stylesheet" href="styles.css">
 		<script src="script.js" defer></script>
+
+		<!-- JUST FOR FUN: CONFETTI -->
+		<script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js" defer></script>
 	</head>
 	<body>
 		<section id="popup" class="hidden">
@@ -61,7 +67,8 @@
 				<div>
 					<a href="#">
 						<h1 class="logo">
-							<span>Saturn</span><span aria-label="Saturn Sound logo"></span><span>Sound</span>
+							<span>Saturn</span><span aria-label="Saturn Sound logo"></span
+							><span>Sound</span>
 						</h1>
 					</a>
 					<div class="nav-buttons">
@@ -279,7 +286,9 @@
 							<div>
 								<label for="email">Email <span class="required">*</span></label>
 								<input type="email" id="email" name="email">
-								<span class="error hidden" aria-live="polite">Email error.</span>
+								<span class="error hidden" aria-live="polite"
+									>Email error.</span
+								>
 							</div>
 
 							<div>
@@ -287,7 +296,9 @@
 									>Phone <span class="required hidden">*</span></label
 								>
 								<input type="tel" id="phone" name="phone">
-								<span class="error hidden" aria-live="polite">Phone error.</span>
+								<span class="error hidden" aria-live="polite"
+									>Phone error.</span
+								>
 							</div>
 						</fieldset>
 
@@ -305,7 +316,9 @@
 								<input type="radio" id="phonePref" name="preference">
 								<label for="phonePref">Phone</label>
 							</div>
-							<span class="error hidden" aria-live="polite">Preference error.</span>
+							<span class="error hidden" aria-live="polite"
+								>Preference error.</span
+							>
 						</fieldset>
 
 						<div>
@@ -318,7 +331,9 @@
 								rows="8"
 								placeholder="Your message here."
 							></textarea>
-							<span class="error hidden" aria-live="polite">Message error.</span>
+							<span class="error hidden" aria-live="polite"
+								>Message error.</span
+							>
 						</div>
 
 						<button type="submit" id="formSubmit">Submit</button>
@@ -360,6 +375,10 @@
 								</div>
 							</div>
 						</div>
+						<label id="confettiLabel">
+							<input type="checkbox" id="confettiCheck">
+							<span>Commence confetti chaos</span>
+						</label>
 					</div>
 				</section>
 			</main>
@@ -369,7 +388,7 @@
 
 				<div class="container">
 					<p>
-						<span>Mockups by Meredith Evans 2025</span>
+						<span>Mockup by Meredith Evans 2025</span>
 						<a href="#top">Jump to top of page</a>
 					</p>
 					<ul>

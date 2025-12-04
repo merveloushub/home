@@ -436,7 +436,7 @@ nav li {
 	display: block;
 	text-align: center;
 	border: 2px solid transparent;
-		border-top-color: var(--section-bg);
+	border-top-color: var(--section-bg);
 	border-right-color: var(--section-bg);
 	border-left-color: var(--section-bg);
 }
@@ -451,12 +451,12 @@ nav li:hover {
 	animation: navHover 2s ease infinite;
 }
 
-@keyframes navHover { 
+@keyframes navHover {
 	from {
-	background-position: 100% 0%;
+		background-position: 100% 0%;
 	}
 	to {
-	background-position: 0% 0%;
+		background-position: 0% 0%;
 	}
 }
 
@@ -835,6 +835,23 @@ input[type="radio"] {
 
 .game-num.hidden {
 	visibility: hidden;
+}
+
+#confettiLabel {
+	display: none;
+	gap: 1em;
+	align-items: center;
+}
+
+#confettiCheck {
+	width: initial;
+	accent-color: var(--accent-2);
+	cursor: pointer;
+}
+
+#confettiLabel span {
+	font-family: "Karla", sans-serif;
+	text-transform: none;
 }
 
 /* footer -------------------------------------------------- ⟡ */
